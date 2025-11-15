@@ -34,7 +34,14 @@ import teamImg2 from '~/assets/images/team2.jpg';
 import partnerLogo1 from '~/assets/images/partnerLogo1.png';
 import partnerLogo2 from '~/assets/images/partnerLogo2.png';
 import partnerLogo3 from '~/assets/images/partnerLogo3.png';
+import hero1 from '~/assets/images/hero1.jpg';
+import hero2 from '~/assets/images/hero2.jpg';
+import hero3 from '~/assets/images/hero3.jpg';
 
+
+/* ==================== HERO SLIDES DATA ==================== */
+// Define and EXPORT the slides data array
+export const heroSlides = [hero1, hero2, hero3];
 
 /* ==================== ABOUT SNAPSHOT ==================== */
 export const contentHomeOne: ContentProps = {
