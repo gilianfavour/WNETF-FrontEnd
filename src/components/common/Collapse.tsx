@@ -7,6 +7,11 @@ import { CollapseProps } from '~/shared/types';
 const Collapse = ({ items, classCollapseItem, iconUp, iconDown }: CollapseProps) => {
   const { activeIndex, handleSetIndex } = useCollapse();
 
+  // ✅ Safely handle missing or invalid items
+  if (!Array.isArray(items) || items.length === 0) {
+    return null; // or return <p>No items available</p>;
+  }
+
   return (
     <>
       {items.map(({ title, description }, index) => (
@@ -20,23 +25,22 @@ const Collapse = ({ items, classCollapseItem, iconUp, iconDown }: CollapseProps)
               className="align-center flex justify-between"
               id={`accordion__heading-${index}`}
               aria-disabled="false"
-              aria-expanded="false"
+              aria-expanded={activeIndex === index}
               aria-controls={`accordion__panel-${index}`}
               role="button"
             >
-              <h2 className="w-full pr-2 text-lg font-medium leading-6 text-gray-900 dark:text-slate-300">{title}</h2>
+              <h2 className="w-full pr-2 text-lg font-medium leading-6 text-gray-900 dark:text-slate-300">
+                {title}
+              </h2>
               {iconDown && iconUp ? (
-                activeIndex === index ? (
-                  iconUp
-                ) : (
-                  iconDown
-                )
+                activeIndex === index ? iconUp : iconDown
               ) : activeIndex === index ? (
                 <IconChevronUp className="h-6 w-6 text-primary-600 dark:text-slate-200" />
               ) : (
                 <IconChevronDown className="h-6 w-6 text-primary-600 dark:text-slate-200" />
               )}
             </div>
+
             {activeIndex === index && (
               <div
                 className="mt-3 select-none"
