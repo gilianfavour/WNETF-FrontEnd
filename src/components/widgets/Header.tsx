@@ -243,11 +243,16 @@ const useOnClickOutside = (
 // --- Navigation Links ---
 const NAV_LINKS = [
   {
-    label: "Who we are",
+    label: "About Us",
     links: [
-      { label: "Our Story", href: "/about#story" },
-      { label: "Our Team", href: "/team#team" },
-      { label: "Our Mission", href: "/mission#mission" },
+      { label: "West Nile Education Trust Fund", href: "/about/wnetf" },
+      { label: "WNETF-Strategic Plan", href: "/about/strategic_plan" },
+      { label: "WestNile Foundation", href: "/about/wnf" },
+      { label: "Our Partners", href: "/about/partners" },
+      { label: "Our Team", href: "/about/team" },
+      { label: "Annual Dinner", href: "/about/AnnualDinner" },
+      { label: "WestNile Night", href: "/about/wnNight" },
+      
     ],
   },
 
