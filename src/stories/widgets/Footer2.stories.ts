@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react';
 
-import Component from '~/components/widgets/Footer2';
+import Component from '~/components/widgets/Footer';
 import { footerData as mockData } from '~/shared/data/global.data';
 
 // More on how to set up stories at: https://storybook.js.org/docs/writing-stories#default-export
