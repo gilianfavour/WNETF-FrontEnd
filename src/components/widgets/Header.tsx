@@ -180,7 +180,6 @@
 
 // export default Header;
 
-
 "use client";
 
 import React, { useState, useRef, useEffect } from "react";
@@ -256,10 +255,10 @@ const NAV_LINKS = [
     ],
   },
 
-  // *** UPDATED: What we do — single link, no dropdown ***
+  // --- What We Do (single link, no dropdown) ---
   {
     label: "What we do",
-    href: "/services",
+    href: "/whatwedo",
     links: [],
   },
 
@@ -271,6 +270,7 @@ const NAV_LINKS = [
       { label: "Blog", href: "/blog#blog" },
     ],
   },
+
   {
     label: "Connect with us",
     links: [
@@ -297,7 +297,7 @@ const CustomNavbar: React.FC = () => {
   const toggleMenu = () => setIsMenuOpen((prev) => !prev);
 
   const toggleDropdown = (index: number) => {
-    if (!NAV_LINKS[index].links.length) return; // <--- prevents dropdown toggle on "What we do"
+    if (!NAV_LINKS[index].links.length) return;
     setIsDropdownOpen((prev) =>
       prev.map((v, i) => (i === index ? !v : false))
     );
@@ -358,7 +358,7 @@ const CustomNavbar: React.FC = () => {
             {NAV_LINKS.map((item, idx) => (
               <li key={idx} className="relative group">
 
-                {/* If it has no dropdown (like What we do) → render as link */}
+                {/* --- SINGLE LINK (no dropdown) --- */}
                 {!item.links.length ? (
                   <a
                     href={item.href}
@@ -369,6 +369,7 @@ const CustomNavbar: React.FC = () => {
                   </a>
                 ) : (
                   <>
+                    {/* DROPDOWN TRIGGER */}
                     <span
                       className="font-bold text-black cursor-pointer py-2 px-3 block hover:text-maroon-600 transition duration-200"
                       onClick={() => toggleDropdown(idx)}
@@ -376,7 +377,7 @@ const CustomNavbar: React.FC = () => {
                       {item.label}
                     </span>
 
-                    {/* DROPDOWN */}
+                    {/* DROPDOWN MENU */}
                     <div
                       className={`${
                         isDropdownOpen[idx] ? "block" : "hidden"
@@ -389,14 +390,6 @@ const CustomNavbar: React.FC = () => {
                           className="block py-3 px-5 text-gray-700 font-medium border-b last:border-0 hover:bg-red-50 transition duration-200"
                           onClick={closeNavbar}
                           style={{ borderBottomColor: "#eee" }}
-                          onMouseEnter={(e) => {
-                            e.currentTarget.style.color = PRIMARY_COLOR;
-                            e.currentTarget.style.backgroundColor = "#E1F5FE";
-                          }}
-                          onMouseLeave={(e) => {
-                            e.currentTarget.style.color = "#333";
-                            e.currentTarget.style.backgroundColor = "white";
-                          }}
                         >
                           {link.label}
                         </Link>
@@ -404,6 +397,7 @@ const CustomNavbar: React.FC = () => {
                     </div>
                   </>
                 )}
+
               </li>
             ))}
           </ul>
