@@ -375,7 +375,12 @@ export default function WNETFBanner() {
       <div className={styles.banner}>
         {/* Background Image */}
         <div className={styles.backgroundImage}>
-          <img src="/beneficiaries/hero.png" alt="WNETF Background" className={styles.image} />
+          {/* <img src="/beneficiaries/hero.png" alt="WNETF Background" className={styles.image} /> */}
+             <img
+          src="/applications/app_hero.jpg"
+          alt="WNETF Background"
+          className={styles.heroImage}
+        />
           {/* Overlay with brand color */}
           <div className={styles.overlay}></div>
         </div>
