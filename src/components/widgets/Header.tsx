@@ -274,7 +274,7 @@ const NAV_LINKS = [
   {
     label: "Connect with us",
     links: [
-      { label: "Contact", href: "/join" },
+      { label: "Contact", href: "/contact" },
       { label: "Donate", href: "/donate#donate" },
       { label: "Volunteer With Us", href: "/volunteerForm#volunteerForm" },
     ],
