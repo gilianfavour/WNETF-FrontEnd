@@ -4,7 +4,7 @@ import { FaFacebook, FaTwitter, FaLinkedin, FaMapMarkerAlt, FaEnvelope, FaPhone 
 import { motion } from "framer-motion";
 
 export default function Contact() {
-  const primaryColor = "#2596be";
+  const primaryColor = "#ffffff";
   const [form, setForm] = useState({ name: "", email: "", message: "" });
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => setForm({ ...form, [e.target.name]: e.target.value });

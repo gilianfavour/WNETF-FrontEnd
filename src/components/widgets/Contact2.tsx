@@ -5,7 +5,7 @@ import WidgetWrapper from '../common/WidgetWrapper';
 import { FaFacebook, FaInstagram, FaYoutube, FaMapMarkerAlt, FaEnvelope, FaPhone } from "react-icons/fa";
 
 const Contact2 = ({ header, form, id, hasBackground = false, items }: ContactProps) => {
-  const primaryColor = "#2596be";
+  const primaryColor = "#ffffff";
 
   return (
     <WidgetWrapper
@@ -23,10 +23,10 @@ const Contact2 = ({ header, form, id, hasBackground = false, items }: ContactPro
             {items.map((item, index) => (
               <div
                 key={index}
-                className="bg-gray-800 rounded-xl p-6 shadow-lg text-gray-200 flex flex-col gap-3"
+                className="bg-white-800 rounded-xl p-6 shadow-lg text-gray-200 flex flex-col gap-3"
               >
                 {item.icon && (
-                  <item.icon size={32} className="text-white" style={{ color: primaryColor }} />
+                  <item.icon size={32} className="text-gray" style={{ color: primaryColor }} />
                 )}
                 <h3 className="text-xl font-semibold">{item.title}</h3>
                 <div className="text-gray-300">
@@ -45,7 +45,7 @@ const Contact2 = ({ header, form, id, hasBackground = false, items }: ContactPro
         </div>
 
         {/* Contact Info + Social Links */}
-        <div className="flex flex-col md:flex-row justify-between items-center md:items-start bg-gray-800 rounded-xl shadow-lg p-6">
+        <div className="flex flex-col md:flex-row justify-between items-center md:items-start bg-white-800 rounded-xl shadow-lg p-6">
 
           {/* Contact Info */}
           <div className="flex flex-col gap-3 text-gray-200 mb-4 md:mb-0">
@@ -55,11 +55,11 @@ const Contact2 = ({ header, form, id, hasBackground = false, items }: ContactPro
             </div>
             <div className="flex items-center gap-2">
               <FaEnvelope style={{ color: primaryColor }} />
-              <span>info@wnetf.org</span>
+              <span>inquirersunett@gmail|info@unnet.com</span>
             </div>
             <div className="flex items-center gap-2">
               <FaPhone style={{ color: primaryColor }} />
-              <span>+256 700 000000</span>
+              <span>+256 772603162</span>
             </div>
           </div>
 
@@ -69,7 +69,7 @@ const Contact2 = ({ header, form, id, hasBackground = false, items }: ContactPro
               <a
                 key={index}
                 href="#"
-                className="p-3 rounded-lg text-white hover:scale-110 transition-transform"
+                className="p-3 rounded-lg text-gray hover:scale-110 transition-transform"
                 style={{ backgroundColor: primaryColor }}
               >
                 <Icon />
