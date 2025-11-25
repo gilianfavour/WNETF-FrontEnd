@@ -26,7 +26,7 @@ const HeroCarousel = ({ autoPlay = true, interval = 7000 }: { autoPlay?: boolean
   }, [autoPlay, interval]);
 
   return (
-    <section id="hero-carousel" className="relative w-full h-[70vh] overflow-hidden">
+    <section id="hero-carousel" className="relative w-full h-[90vh] overflow-hidden">
       {/* Background Images - smooth crossfade */}
       <div className="absolute inset-0 w-full h-full">
         <AnimatePresence>
