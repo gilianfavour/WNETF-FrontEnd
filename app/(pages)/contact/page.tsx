@@ -12,7 +12,7 @@ export const metadata: Metadata = {
 const Page = () => {
   return (
     <>
-      <Hero {...heroContact} />
+      <Hero {...(heroContact as any)} />
       <Contact2 {...contact2Contact} />
       <Features2 {...features2Contact} />
     </>
