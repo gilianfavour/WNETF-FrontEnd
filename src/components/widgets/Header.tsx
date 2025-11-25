@@ -274,8 +274,8 @@ const NAV_LINKS = [
   {
     label: "Connect with us",
     links: [
-      { label: "Contact", href: "/contact" },
-      { label: "Donate", href: "/donate#donate" },
+      { label: "Contact", href: "/join" },
+      { label: "Donate", href: "/donate" },
       { label: "Volunteer With Us", href: "/volunteerForm#volunteerForm" },
     ],
   },
@@ -311,7 +311,7 @@ const CustomNavbar: React.FC = () => {
 
   return (
     <nav
-      className="fixed left-0 right-0 z-[1040] shadow-md transition-all"
+      className="left-0 right-0 z-[1040] shadow-md transition-all"
       style={{
         backgroundColor: HOVER_BG,
         borderBottom: `4px solid ${PRIMARY_COLOR}`,
