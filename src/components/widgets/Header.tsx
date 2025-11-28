@@ -240,11 +240,12 @@ const NAV_LINKS = [
       { label: "Blog", href: "/blog#blog" },
     ],
   },
+
   {
     label: "Connect with us",
     links: [
       { label: "Contact", href: "/join" },
-      { label: "Donate", href: "/donate#donate" },
+      { label: "Donate", href: "/donate" },
       { label: "Volunteer With Us", href: "/volunteerForm#volunteerForm" },
     ],
   },
@@ -349,6 +350,7 @@ const CustomNavbar: React.FC = () => {
                     </div>
                   </>
                 )}
+
               </li>
             ))}
           </ul>

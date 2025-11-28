@@ -30,12 +30,12 @@ export const contact2Contact: ContactProps = {
   items: [
     {
       title: 'Our Address',
-      description: ['1230 Maecenas Street Donec Road', 'New York, EEUU'],
+      description: ['West Nile Region', 'Uganda'],
       icon: IconMapPin,
     },
     {
       title: 'Contact',
-      description: ['Mobile: +1 (123) 456-7890', 'Mail: tailnext@gmail.com'],
+      description: ['Phone: +256 700 000000', 'Email: info@wnetf.org'],
       icon: IconPhoneCall,
     },
     {
@@ -72,18 +72,10 @@ export const contact2Contact: ContactProps = {
     radioBtns: {
       label: 'What is the reason for your contact?',
       radios: [
-        {
-          label: 'General inquiries',
-        },
-        {
-          label: 'Technical help',
-        },
-        {
-          label: 'Claims',
-        },
-        {
-          label: 'Others',
-        },
+        { label: 'General inquiries' },
+        { label: 'Technical help' },
+        { label: 'Claims' },
+        { label: 'Others' },
       ],
     },
     textarea: {
@@ -94,14 +86,8 @@ export const contact2Contact: ContactProps = {
       placeholder: 'Write your message...',
     },
     checkboxes: [
-      {
-        label: 'Have you read our privacy policy?',
-        value: '',
-      },
-      {
-        label: 'Do you want to receive monthly updates by email?',
-        value: '',
-      },
+      { label: 'Have you read our privacy policy?', value: '' },
+      { label: 'Do you want to receive monthly updates by email?', value: '' },
     ],
     btn: {
       title: 'Send Message',

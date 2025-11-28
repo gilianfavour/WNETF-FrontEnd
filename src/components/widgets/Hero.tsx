@@ -26,7 +26,7 @@ const HeroCarousel = ({ autoPlay = true, interval = 7000 }: { autoPlay?: boolean
   }, [autoPlay, interval]);
 
   return (
-    <section id="hero-carousel" className="relative w-full h-[70vh] overflow-hidden">
+    <section id="hero-carousel" className="relative w-full h-[90vh] overflow-hidden">
       {/* Background Images - smooth crossfade */}
       <div className="absolute inset-0 w-full h-full">
         <AnimatePresence>
@@ -58,13 +58,13 @@ const HeroCarousel = ({ autoPlay = true, interval = 7000 }: { autoPlay?: boolean
 
       {/* Fixed Overlay Text (does not re-render per slide) */}
       <div className="absolute inset-0 flex flex-col justify-center items-center text-center px-6 text-white z-10">
-        <p className="text-sm md:text-base font-semibold uppercase text-primary-300 mb-2">
+        <p className="text-lg md:text-base font-semibold uppercase text-primary-300 mb-2">
           Empowering Dreams
         </p>
         <h1 className="text-4xl md:text-6xl font-bold leading-tight mb-4 drop-shadow-lg">
           Building a Brighter Future
         </h1>
-        <p className="max-w-2xl text-lg md:text-xl mb-6 text-gray-100">
+        <p className="max-w-2xl text-sm md:text-xl mb-6 text-gray-100">
           Supporting education and opportunity for every child in West Nile.
         </p>
         <div className="flex gap-4">

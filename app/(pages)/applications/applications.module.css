@@ -1,0 +1,369 @@
+/* applications.module.css */
+
+/* ================= PAGE WRAPPER ================= */
+.pageWrapper {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #f5f7fa 0%, #e8eef5 100%);
+}
+
+/* ================= HERO SECTION FULL WIDTH ================= */
+.hero {
+  position: relative;
+  width: 100%;
+  height: 500px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 3rem;
+}
+
+.heroImage {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 1;
+  filter: brightness(0.7);
+}
+
+.heroOverlay {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, rgba(3, 43, 83, 0.85) 0%, rgba(6, 82, 134, 0.75) 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.heroContent {
+  max-width: 1200px;
+  padding: 2rem;
+  text-align: center;
+  color: #fff;
+}
+
+.heroContent h1 {
+  font-size: 3.5rem;
+  margin-bottom: 1rem;
+  font-weight: 700;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+  line-height: 1.2;
+}
+
+.heroContent > p {
+  font-size: 1.3rem;
+  line-height: 1.6;
+  margin-bottom: 2.5rem;
+  opacity: 0.95;
+  max-width: 700px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.heroStats {
+  display: flex;
+  justify-content: center;
+  gap: 3rem;
+  margin-top: 2rem;
+}
+
+.stat {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.stat strong {
+  font-size: 2.5rem;
+  font-weight: 700;
+  display: block;
+  color: #FFD700;
+}
+
+.stat span {
+  font-size: 0.95rem;
+  opacity: 0.9;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+/* ================= CONTAINER ================= */
+.container {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 0 2rem 4rem;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+.formIntro {
+  text-align: center;
+  margin-bottom: 2.5rem;
+  color: #032B53;
+}
+
+.formIntro h2 {
+  font-size: 2.5rem;
+  margin-bottom: 0.75rem;
+  font-weight: 700;
+}
+
+.formIntro p {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  color: #555;
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+/* ================= FORM CARD ================= */
+.formCard {
+  background: #fff;
+  padding: 3rem;
+  border-radius: 16px;
+  box-shadow: 0 10px 40px rgba(3, 43, 83, 0.12), 0 2px 8px rgba(0, 0, 0, 0.06);
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem;
+  border: 1px solid rgba(3, 43, 83, 0.08);
+  position: relative;
+  overflow: hidden;
+}
+
+.formCard::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, #032B53 0%, #065286 50%, #0a6bb3 100%);
+}
+
+.formSection {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  padding-bottom: 2rem;
+  border-bottom: 2px solid #f3f4f6;
+  position: relative;
+}
+
+.formSection:last-of-type {
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+.formSection h3 {
+  font-size: 1.5rem;
+  color: #032B53;
+  margin-bottom: 0.75rem;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.formSection h3::before {
+  content: '';
+  width: 6px;
+  height: 28px;
+  background: linear-gradient(180deg, #065286 0%, #0a6bb3 100%);
+  border-radius: 3px;
+}
+
+.formRow {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.25rem;
+}
+
+.formGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.formGroup label {
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: #374151;
+}
+
+.formCard input,
+.formCard textarea,
+.formCard select {
+  width: 100%;
+  padding: 0.875rem 1rem;
+  border-radius: 10px;
+  border: 1.5px solid #d1d5db;
+  font-size: 1rem;
+  font-family: inherit;
+  transition: all 0.2s ease;
+  background: #fff;
+}
+
+.formCard input:focus,
+.formCard textarea:focus,
+.formCard select:focus {
+  outline: none;
+  border-color: #065286;
+  box-shadow: 0 0 0 3px rgba(6, 82, 134, 0.1);
+}
+
+.formCard textarea {
+  resize: vertical;
+  min-height: 120px;
+  line-height: 1.6;
+}
+
+.formCard select {
+  cursor: pointer;
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%23374151' d='M6 9L1 4h10z'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 1rem center;
+  padding-right: 2.5rem;
+}
+
+.fileInputWrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.fileInputWrapper input[type="file"] {
+  padding: 0.75rem;
+  cursor: pointer;
+  border: 2px dashed #d1d5db;
+  background: #f9fafb;
+}
+
+.fileInputWrapper input[type="file"]:hover {
+  border-color: #065286;
+  background: #f0f9ff;
+}
+
+.fileHint {
+  font-size: 0.85rem;
+  color: #6b7280;
+  margin: 0;
+}
+
+.submitBtn {
+  background: linear-gradient(135deg, #032B53 0%, #065286 100%);
+  color: #fff;
+  padding: 1rem 2rem;
+  border: none;
+  border-radius: 10px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 12px rgba(3, 43, 83, 0.25);
+  margin-top: 1rem;
+}
+
+.submitBtn:hover {
+  background: linear-gradient(135deg, #065286 0%, #0a6bb3 100%);
+  box-shadow: 0 6px 16px rgba(3, 43, 83, 0.35);
+  transform: translateY(-2px);
+}
+
+.submitBtn:active {
+  transform: translateY(0);
+}
+
+/* ================= SUCCESS MESSAGE ================= */
+.success {
+  max-width: 600px;
+  margin: 4rem auto;
+  text-align: center;
+  padding: 3.5rem 2rem;
+  background: linear-gradient(135deg, #e0f7e9 0%, #c7f0d8 100%);
+  border-radius: 16px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+  color: #04653f;
+}
+
+.successIcon {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  background: #04653f;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 3rem;
+  font-weight: bold;
+  margin: 0 auto 1.5rem;
+  box-shadow: 0 4px 12px rgba(4, 101, 63, 0.3);
+}
+
+.success h2 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  font-weight: 700;
+}
+
+.success p {
+  font-size: 1.15rem;
+  line-height: 1.6;
+  margin-bottom: 0.5rem;
+}
+
+.successSubtext {
+  font-size: 1rem;
+  opacity: 0.85;
+}
+
+/* ================= RESPONSIVE DESIGN ================= */
+@media (max-width: 768px) {
+  .hero {
+    height: 400px;
+  }
+
+  .heroContent h1 {
+    font-size: 2.25rem;
+  }
+
+  .heroContent > p {
+    font-size: 1.1rem;
+  }
+
+  .heroStats {
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  .stat strong {
+    font-size: 2rem;
+  }
+
+  .container {
+    padding: 0 1rem 3rem;
+  }
+
+  .formCard {
+    padding: 2rem 1.5rem;
+  }
+
+  .formRow {
+    grid-template-columns: 1fr;
+  }
+
+  .formIntro h2 {
+    font-size: 2rem;
+  }
+
+  .success {
+    margin: 2rem 1rem;
+    padding: 2.5rem 1.5rem;
+  }
+}
