@@ -296,10 +296,41 @@ type StepsProps = Widget & {
   isReversed?: boolean;
 };
 
-type TeamProps = Widget & {
-  header?: Header;
-  teams: Array<Team>;
+// Image type for team member
+export type TeamImage = {
+  src: StaticImageData;
+  alt: string;
 };
+
+// Social item
+export type SocialItem = {
+  title: string;       // MUST be string
+  icon: React.FC<any>; // Tabler icons
+  href: string;
+};
+
+// Team member
+export type Team = {
+  name: string;
+  occupation: string;
+  image: TeamImage;
+  items: SocialItem[];   // NOT optional
+};
+
+// Header for the team section
+export type TeamHeader = {
+  title: string;
+  subtitle: string;
+};
+
+// Main teamHome export type
+export type TeamProps = {
+  id: string;
+  hasBackground: boolean;
+  header: TeamHeader;
+  teams: Team[];
+};
+
 
 type AnnouncementProps = {
   title: string;
@@ -360,3 +391,15 @@ type HeaderProps = {
   showRssFeed?: boolean;
   position?: 'center' | 'right' | 'left';
 };
+
+type SocialProofProps = {
+  id?: string;
+  title?: string;      // Title added correctly
+  hasBackground?: boolean;
+  images: {
+    src: any;
+    alt: string;
+    link: string;
+  }[];
+}
+
