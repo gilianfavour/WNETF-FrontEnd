@@ -5,6 +5,6 @@ module.exports.SITE = {
   basePathname: '/',
   trailingSlash: false,
 
-  title: 'TailNext — Your website with Next.js + Tailwind CSS',
-  description: 'TailNext is a free and ready to start template to make your website using Next.js and Tailwind CSS.',
+  title: 'West Nile Education Trust Fund',
+  description: 'WNETF is an intiative to help the under previlaged in WestNile access Education',
 };
