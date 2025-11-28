@@ -31,12 +31,14 @@ import beneficiaryImg from '~/assets/images/beneficiary1.jpg';
 import beneficiaryImg1 from '~/assets/images/beneficiary2.jpeg';
 import teamImg1 from '~/assets/images/team1.png';
 import teamImg2 from '~/assets/images/team2.jpg';
-import partnerLogo1 from '~/assets/images/partnerLogo1.png';
-import partnerLogo2 from '~/assets/images/partnerLogo2.png';
-import partnerLogo3 from '~/assets/images/partnerLogo3.png';
 import hero1 from '~/assets/images/hero1.jpg';
 import hero2 from '~/assets/images/hero2.jpg';
 import hero3 from '~/assets/images/hero3.jpg';
+import partnerLogo1 from '~/assets/images/partnerLogo1.png'
+import partnerLogo2 from '~/assets/images/partnerLogo2.png'
+import partnerLogo3 from '~/assets/rdm.png'
+import partnerLogo4 from '~/assets/images/wnf.png'
+import partnerLogo5 from '~/assets/images/candia.jpg'
 
 
 /* ==================== HERO SLIDES DATA ==================== */
@@ -187,11 +189,13 @@ export const callToAction2Home: CallToActionProps = {
 /* ==================== PARTNERS / SPONSORS STRIP ==================== */
 export const socialProofHome: SocialProofProps = {
   id: 'partners-strip',
-  hasBackground: false,
+  title: "Strategic Partners",
   images: [
     { link: '#', src: partnerLogo1, alt: 'Partner 1' },
     { link: '#', src: partnerLogo2, alt: 'Partner 2' },
     { link: '#', src: partnerLogo3, alt: 'Partner 3' },
+    { link: '#', src: partnerLogo4, alt: 'Partner 4' },
+    { link: '#', src: partnerLogo5, alt: 'Partner 5' },
   ],
 };
 

@@ -38,7 +38,6 @@
 //       return newValues;
 //     });
 //   };
-
 //   const handleCloseDropdownOnClick = (index: number) => {
 //     setIsDropdownOpen((prevValues) => {
 //       const newValues = [...(prevValues as boolean[])];
@@ -183,42 +182,27 @@
 "use client";
 
 import React, { useState, useRef, useEffect } from "react";
+import { BANNER_HEIGHT } from "./Announcement";
 
-// --- Colors ---
-const PRIMARY_COLOR = '#032B53';
+const PRIMARY_COLOR = "#032B53";
 const HOVER_BG = "#E1F5FE";
 
-// --- Custom Link Component ---
-const Link = ({
-  href,
-  children,
-  onClick,
-  className,
-  style,
-  onMouseEnter,
-  onMouseLeave,
-}: {
+/* ------------------------------- */
+interface CustomLinkProps {
   href: string;
   children: React.ReactNode;
   onClick?: () => void;
   className?: string;
   style?: React.CSSProperties;
-  onMouseEnter?: (e: React.MouseEvent<HTMLAnchorElement>) => void;
-  onMouseLeave?: (e: React.MouseEvent<HTMLAnchorElement>) => void;
-}) => (
-  <a
-    href={href}
-    onClick={onClick}
-    className={className}
-    style={style}
-    onMouseEnter={onMouseEnter}
-    onMouseLeave={onMouseLeave}
-  >
+}
+
+const Link: React.FC<CustomLinkProps> = ({ href, children, ...props }) => (
+  <a href={href} {...props}>
     {children}
   </a>
 );
 
-// --- Hook for Outside Click ---
+/* ------------------------------- */
 const useOnClickOutside = (
   ref: React.RefObject<HTMLElement>,
   handler: (e: Event) => void
@@ -228,18 +212,12 @@ const useOnClickOutside = (
       if (!ref.current || ref.current.contains(event.target as Node)) return;
       handler(event);
     };
-
     document.addEventListener("mousedown", listener);
-    document.addEventListener("touchstart", listener);
-
-    return () => {
-      document.removeEventListener("mousedown", listener);
-      document.removeEventListener("touchstart", listener);
-    };
+    return () => document.removeEventListener("mousedown", listener);
   }, [ref, handler]);
 };
 
-// --- Navigation Links ---
+/* ------------------------------- */
 const NAV_LINKS = [
   {
     label: "About Us",
@@ -251,17 +229,9 @@ const NAV_LINKS = [
       { label: "Our Team", href: "/about/team" },
       { label: "Annual Dinner", href: "/about/AnnualDinner" },
       { label: "WestNile Night", href: "/about/wnNight" },
-      
     ],
   },
-
-  // --- What We Do (single link, no dropdown) ---
-  {
-    label: "What we do",
-    href: "/whatwedo",
-    links: [],
-  },
-
+  { label: "What we do", href: "/whatwedo", links: [] },
   {
     label: "Latest",
     links: [
@@ -281,115 +251,98 @@ const NAV_LINKS = [
   },
 ];
 
-// --- Main Navigation Bar ---
+/* ------------------------------- */
 const CustomNavbar: React.FC = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [isDropdownOpen, setIsDropdownOpen] = useState(
-    NAV_LINKS.map(() => false)
-  );
+  const [navHeight, setNavHeight] = useState(80);
+  const [bannerVisible, setBannerVisible] = useState(true);
+  const [activeDropdown, setActiveDropdown] = useState<number | null>(null);
+
+  const isShrunk = navHeight === 60;
+  const lastScrollY = useRef(0);
   const navRef = useRef<HTMLUListElement | null>(null);
 
-  const closeNavbar = () => {
-    setIsMenuOpen(false);
-    setIsDropdownOpen(NAV_LINKS.map(() => false));
-  };
-
-  const toggleMenu = () => setIsMenuOpen((prev) => !prev);
-
-  const toggleDropdown = (index: number) => {
-    if (!NAV_LINKS[index].links.length) return;
-    setIsDropdownOpen((prev) =>
-      prev.map((v, i) => (i === index ? !v : false))
-    );
-  };
-
   useOnClickOutside(navRef, () => {
-    if (!isMenuOpen) {
-      setIsDropdownOpen(NAV_LINKS.map(() => false));
-    }
+    setIsMenuOpen(false);
+    setActiveDropdown(null);
   });
+
+  /* --- Shrink Navbar on scroll --- */
+  useEffect(() => {
+    const handleScroll = () => {
+      const current = window.scrollY;
+      setNavHeight(current > lastScrollY.current ? 60 : 70);
+      lastScrollY.current = current;
+    };
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  /* --- Listen for banner visibility events --- */
+  useEffect(() => {
+    const handler = (e: any) => setBannerVisible(e.detail);
+    window.addEventListener("banner-visibility", handler);
+    return () => window.removeEventListener("banner-visibility", handler);
+  }, []);
 
   return (
     <nav
-      className="left-0 right-0 z-[1040] shadow-md transition-all"
+      className="fixed left-0 w-full z-[1040] shadow-md"
       style={{
         backgroundColor: HOVER_BG,
         borderBottom: `4px solid ${PRIMARY_COLOR}`,
-        top: "80px",
-        height: isMenuOpen ? "auto" : "60px",
+        height: `${navHeight}px`,
+        top: bannerVisible ? `${BANNER_HEIGHT}px` : "0px",
+        transition: "height 0.3s ease, top 0.3s ease",
       }}
     >
-      <div className="container mx-auto flex flex-wrap justify-between items-center h-full">
+      <style>
+        {`
+          @keyframes pulseGlow {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+          }
+        `}
+      </style>
 
+      <div className="container mx-auto flex items-center justify-between h-full px-4">
         {/* LOGO */}
-        <div className="flex items-center h-full py-4">
-          <a href="/" className="px-4">
-            <img 
-              src="/images/wnetf.png" 
-              alt="Company Logo" 
-              className="h-14 w-auto"
-            />
-          </a>
-        </div>
+        <a href="/" className="flex items-center">
+          <img
+            src="/images/wnetf.png"
+            className={`object-contain transition-all ${isShrunk ? "h-14" : "h-20"}`}
+            alt="Logo"
+          />
+        </a>
 
-        {/* MOBILE MENU BUTTON */}
-        <button
-          onClick={toggleMenu}
-          className="lg:hidden p-2"
-          aria-expanded={isMenuOpen}
-        >
-          {isMenuOpen ? (
-            <svg className="w-6 h-6" stroke="currentColor" viewBox="0 0 24 24">
-              <path d="M6 18L18 6M6 6l12 12" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-            </svg>
-          ) : (
-            <svg className="w-6 h-6" stroke="currentColor" viewBox="0 0 24 24">
-              <path d="M4 6h16M4 12h16M4 18h16" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-            </svg>
-          )}
-        </button>
-
-        {/* NAV ITEMS */}
-        <div className={`${isMenuOpen ? "block" : "hidden"} lg:flex w-full lg:w-auto lg:ml-auto`}>
+        {/* DESKTOP LINKS */}
+        <div className="hidden lg:flex flex-1 justify-center">
           <ul
             ref={navRef}
-            className="flex flex-col lg:flex-row w-full justify-end items-center py-4 lg:py-0 lg:space-x-8 space-y-2 lg:space-y-0 pr-4"
+            className={`flex gap-8 items-center font-semibold transition-all ${isShrunk ? "text-base" : "text-lg"
+              }`}
           >
             {NAV_LINKS.map((item, idx) => (
               <li key={idx} className="relative group">
-
-                {/* --- SINGLE LINK (no dropdown) --- */}
                 {!item.links.length ? (
                   <a
                     href={item.href}
-                    className="font-bold text-black cursor-pointer py-2 px-3 block hover:text-maroon-600 transition duration-200"
-                    onClick={closeNavbar}
+                    className="font-bold text-black py-2 px-3 hover:bg-[#E1F5FE]"
                   >
                     {item.label}
                   </a>
                 ) : (
                   <>
-                    {/* DROPDOWN TRIGGER */}
-                    <span
-                      className="font-bold text-black cursor-pointer py-2 px-3 block hover:text-maroon-600 transition duration-200"
-                      onClick={() => toggleDropdown(idx)}
-                    >
+                    <span className="font-bold text-black py-2 px-3 cursor-pointer hover:bg-[#E1F5FE]">
                       {item.label}
                     </span>
-
-                    {/* DROPDOWN MENU */}
-                    <div
-                      className={`${
-                        isDropdownOpen[idx] ? "block" : "hidden"
-                      } lg:absolute lg:mt-2 lg:top-full lg:left-0 bg-white rounded-xl shadow-xl z-50 min-w-[220px] p-2 lg:group-hover:block transition-all duration-300`}
-                    >
-                      {item.links.map((link, subIdx) => (
+                    <div className="absolute left-0 top-full hidden group-hover:block bg-white shadow-xl p-3 rounded min-w-[220px]">
+                      {item.links.map((link, i) => (
                         <Link
-                          key={subIdx}
+                          key={i}
                           href={link.href}
-                          className="block py-3 px-5 text-gray-700 font-medium border-b last:border-0 hover:bg-red-50 transition duration-200"
-                          onClick={closeNavbar}
-                          style={{ borderBottomColor: "#eee" }}
+                          className="block py-2 px-4 hover:bg-[#E1F5FE]"
                         >
                           {link.label}
                         </Link>
@@ -402,6 +355,82 @@ const CustomNavbar: React.FC = () => {
             ))}
           </ul>
         </div>
+
+        {/* APPLY BUTTON - visible on all screens */}
+        <div className="flex lg:flex-none">
+          <a
+            href="/apply"
+            className={`text-white rounded-lg shadow animate-[pulseGlow_2s_infinite] hover:scale-110 px-3 py-1 text-sm`}
+            style={{ backgroundColor: PRIMARY_COLOR }}
+          >
+            Apply Here
+          </a>
+        </div>
+
+        {/* MOBILE TOGGLE */}
+        <button
+          onClick={() => setIsMenuOpen(!isMenuOpen)}
+          className="lg:hidden p-2 ml-4 relative z-50"
+        >
+          <svg className="w-7 h-7" viewBox="0 0 24 24" stroke="currentColor">
+            {isMenuOpen ? (
+              <path d="M6 18L18 6M6 6l12 12" strokeWidth="2" />
+            ) : (
+              <path d="M4 6h16M4 12h16M4 18h16" strokeWidth="2" />
+            )}
+          </svg>
+        </button>
+
+        {/* MOBILE MENU */}
+        {isMenuOpen && (
+          <div className="absolute top-full left-0 w-full bg-white shadow-lg flex flex-col items-start px-4 py-4 space-y-2 transition-all">
+            {NAV_LINKS.map((item, idx) => (
+              <div
+                key={idx}
+                className="w-full"
+                onMouseEnter={() => setActiveDropdown(idx)}
+                onMouseLeave={() => setActiveDropdown(null)}
+              >
+                {!item.links.length ? (
+                  <Link
+                    href={item.href ?? "#"}
+                    className="block w-full py-2 px-4 text-black rounded hover:bg-[#E1F5FE]"
+                    onClick={() => setIsMenuOpen(false)}
+                  >
+                    {item.label}
+                  </Link>
+
+                ) : (
+                  <>
+                    <div
+                      onClick={() =>
+                        setActiveDropdown(activeDropdown === idx ? null : idx)
+                      }
+                      className="flex justify-between items-center w-full py-2 px-4 text-black rounded hover:bg-[#E1F5FE] cursor-pointer"
+                    >
+                      {item.label}
+                      <span className="ml-2">{activeDropdown === idx ? "▲" : "▼"}</span>
+                    </div>
+                    {activeDropdown === idx && (
+                      <div className="pl-4 flex flex-col space-y-1">
+                        {item.links.map((link, i) => (
+                          <Link
+                            key={i}
+                            href={link.href}
+                            className="block w-full py-2 px-4 text-black rounded hover:bg-[#E1F5FE]"
+                            onClick={() => setIsMenuOpen(false)}
+                          >
+                            {link.label}
+                          </Link>
+                        ))}
+                      </div>
+                    )}
+                  </>
+                )}
+              </div>
+            ))}
+          </div>
+        )}
       </div>
     </nav>
   );
