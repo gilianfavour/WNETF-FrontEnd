@@ -3,6 +3,7 @@
 import React, { useState } from "react";
 import Image from "next/image";
 
+const FONT_COLOR = "#0000";
 const PRIMARY_COLOR = "#032B53";
 const LIGHT_BACKGROUND = "#EAEAEA";
 

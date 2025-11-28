@@ -9,8 +9,9 @@ import teamImg1 from '~/assets/images/team1.png';
 import teamImg2 from '~/assets/images/team2.jpg';
 import partnerLogo1 from '~/assets/images/partnerLogo1.png'
 import partnerLogo2 from '~/assets/images/partnerLogo2.png'
-import partnerLogo3 from '~/assets/images/partnerLogo3.png'
-
+import partnerLogo3 from '~/assets/rdm.png'
+import partnerLogo4 from '~/assets/images/wnf.png'
+import partnerLogo5 from '~/assets/images/candia.jpg'
 // --- Icon Imports for Objectives/Stats ---
 import {
     IconCheck,
@@ -69,28 +70,35 @@ export const strategicAreas = [
 ];
 
 export const socialProofHome = {
-    // ... other properties
-    images: [
-        { 
-            src: partnerLogo1, 
-            alt: 'Master Card Foundation', 
-            // FIX: Change this placeholder:
-            link: 'https://mastercardfdn.org/', 
-        },
-        { 
-            src: partnerLogo2, 
-            alt: 'Muni University', 
-            // FIX: Change this placeholder:
-            link: 'http://muni.ac.ug/', 
-        },
-        { 
-            src: partnerLogo3, 
-            alt: 'RDM', 
-            // FIX: Change this placeholder:
-            link: '/', 
-        },
-        // ... more partners
-    ],
+  id: "partners-strip",
+  title: "Strategic Partners",
+  images: [
+    { 
+      src: partnerLogo1,
+      alt: "Master Card Foundation",
+      link: "https://mastercardfdn.org/",
+    },
+    { 
+      src: partnerLogo2,
+      alt: "Muni University",
+      link: "http://muni.ac.ug/",
+    },
+    { 
+      src: partnerLogo3,
+      alt: "RDM",
+      link: "https://rdmconsult.org/",
+    },
+    {
+      src: partnerLogo4,
+      alt: "West Nile Foundation",
+      link: "#",
+    },
+    {
+      src: partnerLogo5,
+      alt: "Candia Advocates",
+      link: "https://candiaadvocates.co.ug/",
+    },
+  ],
 };
 
 /* ==================== TEAM SECTION ==================== */
