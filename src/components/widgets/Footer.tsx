@@ -88,11 +88,11 @@ export default function Footer() {
               </div>
               <div className="flex items-center text-gray-300">
                 <FaEnvelope className="mr-3" style={{ color: primaryColor }} />
-                <span className="text-sm">info@wnetf.org</span>
+                <span className="text-sm">info@unnet.com</span>
               </div>
               <div className="flex items-center text-gray-300">
                 <FaPhone className="mr-3" style={{ color: primaryColor }} />
-                <span className="text-sm">+256 700 000000</span>
+                <span className="text-sm">+256 772603162</span>
               </div>
             </div>
 
