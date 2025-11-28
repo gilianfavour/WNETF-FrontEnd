@@ -35,7 +35,7 @@ export const contact2Contact: ContactProps = {
     },
     {
       title: 'Contact',
-      description: ['Phone: +256 700 000000', 'Email: info@wnetf.org'],
+      description: ['Phone: +256 72603162', 'Email: info@wnetf.org'],
       icon: IconPhoneCall,
     },
     {
@@ -119,7 +119,7 @@ export const features2Contact: FeaturesProps = {
       icon: IconMessages,
       callToAction: {
         text: 'Write to us',
-        href: '/',
+        href: '/contact',
       },
     },
     {
@@ -128,7 +128,7 @@ export const features2Contact: FeaturesProps = {
       icon: IconHeadset,
       callToAction: {
         text: 'Call us',
-        href: '/',
+        href: '/contact',
       },
     },
   ],
