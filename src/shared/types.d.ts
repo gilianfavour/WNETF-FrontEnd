@@ -391,3 +391,15 @@ type HeaderProps = {
   showRssFeed?: boolean;
   position?: 'center' | 'right' | 'left';
 };
+
+type SocialProofProps = {
+  id?: string;
+  title?: string;      // Title added correctly
+  hasBackground?: boolean;
+  images: {
+    src: any;
+    alt: string;
+    link: string;
+  }[];
+}
+

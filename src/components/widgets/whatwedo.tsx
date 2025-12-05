@@ -3,6 +3,7 @@
 import React, { useState } from "react";
 import Image from "next/image";
 
+const FONT_COLOR = "#0000";
 const PRIMARY_COLOR = "#032B53";
 const LIGHT_BACKGROUND = "#EAEAEA";
 
@@ -12,56 +13,56 @@ export default function WhatWeDo() {
   const cards = [
     {
       title: "Enhancing Mind Set Change",
-      image: "/image2.png",
+      image: "/images/EducationAdvocacy.jpg",
       short:
         "Boosting community awareness and promoting educational advocacy to create positive mindset shifts.",
       full: `This initiative strengthens community awareness and education advocacy. It fosters deeper understanding of the significance of education, promotes mindset transformation, and supports the creation of conducive home learning environments.`,
     },
     {
       title: "Leadership Development",
-      image: "/image2.png",
+      image: "/images/leadership.jpg",
       short:
         "Strengthening leadership that can champion and advance educational progress in West Nile.",
       full: `Grassroots leadership gaps hinder progress. WNETF aims to eliminate this obstacle to ensure all children—especially marginalized ones—can actively participate and achieve meaningful learning outcomes.`,
     },
     {
       title: "Data Information Management",
-      image: "/image2.png",
+      image: "/images/dataCommunication.jpg",
       short:
         "Generating accurate educational data to support planning, policy advocacy, and decision-making.",
       full: `There is a shortage of reliable data on educational achievements. WNETF will focus on generating accurate data to guide planning, policy formulation, and advocacy for educational improvements.`,
     },
     {
       title: "Strategic Communication",
-      image: "/image2.png",
+      image: "/images/communication.jpg",
       short:
         "Creating visibility and awareness by showcasing learning gaps and areas needing urgent action.",
       full: `By generating and sharing essential educational data, WNETF will spotlight disparities in learning outcomes and draw attention to disadvantaged learners for government and leadership intervention.`,
     },
     {
       title: "Policy Advocacy and Lobbying",
-      image: "/image2.png",
+      image: "/images/PolicyAdvocacy.jpg",
       short:
         "Advocating for equitable educational policies and consistent implementation across regions.",
       full: `WNETF will collaborate with policymakers to advocate for improved learning outcomes and fair implementation of educational policies across all regions.`,
     },
     {
       title: "Partnership Development",
-      image: "/image2.png",
+      image: "/images/partnership.jpg",
       short:
         "Building strong collaborations to advance the educational transformation agenda.",
       full: `WNETF will partner with government agencies, organizations, and individuals to mobilize stakeholders and achieve long-term educational transformation.`,
     },
     {
       title: "Sponsorship and Support",
-      image: "/image2.png",
+      image: "/images/sponsorship.jpg",
       short:
         "Supporting underprivileged students to access and complete all levels of education.",
       full: `Limited sponsorship causes many promising learners to drop out. WNETF will mobilize resources and create sponsorship programs for disadvantaged students.`,
     },
     {
       title: "Strategic Areas of Support",
-      image: "/image2.png",
+      image: "/images/support.jpg",
       short:
         "Advocating for facilities like libraries, labs, ICT centers & teacher-training opportunities.",
       full: `WNETF will advocate for and directly support the establishment of essential educational facilities such as libraries, laboratories, ICT centers, and teacher training hubs.`,
@@ -75,7 +76,7 @@ export default function WhatWeDo() {
   return (
     <div
       className="w-full py-12 flex flex-col items-center"
-      style={{ backgroundColor: LIGHT_BACKGROUND }}
+      style={{ backgroundColor: LIGHT_BACKGROUND, top:"180px" }}
     >
       {/* Heading */}
       <div
@@ -134,7 +135,7 @@ export default function WhatWeDo() {
                 </h3>
 
                 {/* Image */}
-                <div className="w-full h-36 relative rounded-lg overflow-hidden mb-3">
+                <div className="w-full h-40 relative rounded-lg overflow-hidden mb-3">
                   <Image
                     src={card.image}
                     alt={card.title}
