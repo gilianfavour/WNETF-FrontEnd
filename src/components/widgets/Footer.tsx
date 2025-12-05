@@ -59,7 +59,6 @@ export default function Footer() {
             </h3>
             <ul className="space-y-4">
               {[
-                'Secondary School Scholarships',
                 'University Sponsorship',
                 'Mentorship & Career Guidance',
                 'Support for Vulnerable Learners',
