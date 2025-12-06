@@ -263,6 +263,8 @@ type CallToActionProps = Widget & {
   subtitle: string;
   callToAction?: CallToActionType;
   items?: Array<Item>;
+  image?: { src: string; alt: string };
+  kitInfo?: string;
 };
 
 type FeaturesProps = Widget & {
@@ -363,6 +365,7 @@ type StatsProps = Widget & {
 };
 
 type SocialProofProps = Widget & {
+  title?: string;
   images: Array<Image>;
 };
 
@@ -391,3 +394,15 @@ type HeaderProps = {
   showRssFeed?: boolean;
   position?: 'center' | 'right' | 'left';
 };
+
+type SocialProofProps = {
+  id?: string;
+  title?: string;      // Title added correctly
+  hasBackground?: boolean;
+  images: {
+    src: any;
+    alt: string;
+    link: string;
+  }[];
+}
+
