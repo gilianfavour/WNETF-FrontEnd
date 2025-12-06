@@ -5,12 +5,12 @@ export default function Footer() {
   const primaryColor = "#2596be";
   
   return (
-    <footer className="bg-gradient-to-t from-gray-900 to-gray-800 text-gray-200 pt-6 pb-4 mt-10 border-t border-gray-700">
+    <footer className="bg-gradient-to-t from-gray-900 to-gray-800 text-gray-200 pt-6 pb-4 mt-0.5 border-t border-gray-700">
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
         {/* Main Footer Content */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-10">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-4">
           
           {/* NGO Identity */}
           <div>
@@ -88,11 +88,11 @@ export default function Footer() {
               </div>
               <div className="flex items-center text-gray-300">
                 <FaEnvelope className="mr-3" style={{ color: primaryColor }} />
-                <span className="text-sm">info@wnetf.org</span>
+                <span className="text-sm">info@unnet.com</span>
               </div>
               <div className="flex items-center text-gray-300">
                 <FaPhone className="mr-3" style={{ color: primaryColor }} />
-                <span className="text-sm">+256 700 000000</span>
+                <span className="text-sm">+256 772603162</span>
               </div>
             </div>
 
