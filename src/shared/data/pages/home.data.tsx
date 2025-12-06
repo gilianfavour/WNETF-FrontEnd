@@ -54,7 +54,7 @@ export const contentHomeOne: ContentProps = {
     subtitle: 'Building Opportunities for Students Across West Nile',
   },
   content:
-    'Our goal is to empower students with higher academic levels and standards through quality formal and informal education to improve living conditions of the West Nile Region and Uganda at large.',
+   'The West Nile Education Trust Fund (WNETF) provides scholarships, financial support, and educational development initiatives to empower students and schools across the West Nile Region.',
   image: {
     src: programImg1,
     alt: 'Students in class',
@@ -64,12 +64,12 @@ export const contentHomeOne: ContentProps = {
     {
       title: 'Our Mission',
       description:
-        'To ensure every child in West Nile has access to quality education and the resources they need to succeed.',
+         'To provide scholarships, grants, and financial support to students and educational institutions to improve learning outcomes across West Nile.',
     },
     {
       title: 'Our Vision',
       description:
-        "To attain well educated and empowered people of the West Nile Region in Uganda.",
+       'Empowered and well-educated communities in the West Nile Region through accessible quality education.',
     },
   ],
 };
@@ -81,25 +81,25 @@ export const featuresHome: FeaturesProps = {
   columns: 3,
   header: {
     title: 'Our Key Programs',
-    subtitle: 'Supporting Students, Teachers, and Schools',
+    subtitle: 'Supporting Students Financially',
   },
   items: [
     {
-      title: 'Scholarship Program',
+       title: 'Scholarships & Financial Support',
       description:
-        'Providing financial support to outstanding students to pursue secondary and tertiary education.',
+        'Providing financial assistance to university and vocational students from West Nile to pursue education and skills development.',
       icon: IconCheck,
     },
     {
-      title: 'Teacher Training',
+      title: 'Institutional Development',
       description:
-        'Empowering teachers with modern teaching methods and resources to improve classroom learning.',
+        'Supporting schools and educational institutions with resources, infrastructure, and programs to enhance learning outcomes.',
       icon: IconBulb,
     },
     {
-      title: 'School Infrastructure',
+      title: 'Research & Development',
       description:
-        'Building classrooms, libraries, and providing essential learning materials to underserved schools.',
+        'Contributing to education and scientific research to improve educational standards in the region.',
       icon: IconRocket,
     },
   ],
@@ -120,23 +120,23 @@ export const stepsHome: StepsProps = {
   },
   items: [
     {
-      title: '1500+ Students Supported',
-      description: 'Through scholarships and learning resources',
+     title: '27 Students Supported',
+      description: 'Beneficiaries of scholarships and grants (as of now).',
       icon: IconCheck,
     },
     {
-      title: '200+ Teachers Trained',
-      description: 'Improving teaching quality across the region',
+      title: '7 Public Universities',
+      description: 'Supported students studying at Gulu, Makerere, MUST, Muni, KYU, Busitema, and Kabale.',
       icon: IconCheck,
     },
     {
-      title: '50 Schools Equipped',
-      description: 'Providing libraries, classrooms, and essential resources',
+      title: 'Areas of Strategic Focus',
+      description: 'Mindset change, leadership development, data and information, strategic communication, policy advocacy, partnerships, sponsorship & support.',
       icon: IconCheck,
     },
     {
-      title: 'Ongoing Programs',
-      description: 'Continuous support for sustainable education growth',
+       title: 'Ongoing Programs',
+      description: 'Continuous support for sustainable education growth in West Nile.',
       icon: IconCheck,
     },
   ],
@@ -148,48 +148,49 @@ export const testimonialsHome: TestimonialsProps = {
   hasBackground: false,
   header: {
     title: 'Voices of Our Beneficiaries',
-    subtitle:
-      'Hear from students and teachers whose lives have been transformed by WNETF initiatives.',
+    subtitle: 'Hear from students whose lives have been transformed by WNETF initiatives.',
   },
   testimonials: [
     {
-      name: 'Grace Akello',
-      job: 'Student, Secondary School',
+      name: 'Ayikoru Salama',
+      job: 'Student, University',
       testimonial:
-        'Thanks to WNETF, I was able to complete my secondary education with all the necessary resources. I now dream of becoming a teacher myself.',
+        'Thanks to WNETF, I received a scholarship that allowed me to pursue my degree. It has truly changed my life.',
       image: {
         src: beneficiaryImg,
-        alt: 'Grace Akello',
+        alt: 'Salama',
       },
     },
     {
-      name: 'Samuel Obote',
+      name: 'Feni Nobert',
       job: 'Teacher',
       testimonial:
-        'The teacher training programs provided by WNETF have helped me improve my lessons and engage students better. The impact is visible in their performance.',
+        'The teacher training programs from WNETF have empowered me to improve my teaching and positively impact my students.',
       image: {
         src: beneficiaryImg1,
-        alt: 'Samuel Obote',
+        alt: 'Norbert',
       },
     },
   ],
 };
 
+
+
 /* ==================== FINAL DONATE BANNER ==================== */
 export const callToAction2Home: CallToActionProps = {
-  title: 'Support Education in West Nile Today',
-  subtitle:
-    'Your contribution helps us reach more students, provide better learning resources, and empower the next generation.',
+  title: 'WNETF Arua Marathon 2025',
+  subtitle: 'Join us on Saturday, December 27, 2025 at Arua Hill Open Ground to support education in West Nile.',
+  kitInfo: 'Running kits available at UGX 35,000 — get yours at designated locations!',
   callToAction: {
-    text: 'Donate Now',
-    href: '/donate',
+    text: 'View Details',
+    href: '/about/marathon',
   },
 };
 
 /* ==================== PARTNERS / SPONSORS STRIP ==================== */
 export const socialProofHome: SocialProofProps = {
   id: 'partners-strip',
-  title: "Strategic Partners",
+  title: 'Strategic Partners',
   images: [
     { link: '#', src: partnerLogo1, alt: 'Partner 1' },
     { link: '#', src: partnerLogo2, alt: 'Partner 2' },
