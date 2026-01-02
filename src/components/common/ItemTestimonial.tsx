@@ -33,6 +33,7 @@ const ItemTestimonial = ({
                   width={248}
                   height={248}
                   alt={image.alt}
+                  priority
                   className={twMerge('object-cover shadow-lg bg-gray-500 dark:bg-slate-700', imageClass)}
                 />
               )}

@@ -141,6 +141,7 @@ export default function WhatWeDo() {
                     alt={card.title}
                     fill
                     className="object-cover"
+                    priority
                   />
                 </div>
 

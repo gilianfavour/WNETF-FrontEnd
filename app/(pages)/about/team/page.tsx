@@ -55,6 +55,7 @@ const TeamPage: React.FC = () => {
                                     fill
                                     className="object-cover object-top"
                                     sizes="(max-width: 768px) 100vw, 33vw"
+                                    priority
                                 />
                             </div>
 
@@ -66,25 +67,6 @@ const TeamPage: React.FC = () => {
                                 <p className="text-lg font-semibold mb-4 text-gray-600">
                                     {member.occupation}
                                 </p>
-                                
-                                {/* Social Links */}
-                                {/* <div className="flex justify-center gap-4 border-t pt-4">
-                                    {member.items.map((social, idx) => {
-                                        const SocialIcon = getIcon(social.title);
-                                        return (
-                                            <a 
-                                                key={idx}
-                                                href={social.href}
-                                                target="_blank"
-                                                rel="noopener noreferrer"
-                                                className="text-gray-500 hover:text-gray-800 transition duration-150"
-                                                title={social.title}
-                                            >
-                                                <SocialIcon size={24} style={{ color: PRIMARY_BLUE }} />
-                                            </a>
-                                        );
-                                    })}
-                                </div> */}
                             </div>
                         </div>
                     ))}

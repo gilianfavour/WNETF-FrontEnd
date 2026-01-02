@@ -64,9 +64,9 @@ const NAV_LINKS = [
   {
     label: "Connect with us",
     links: [
-      { label: "Contact", href: "/join" },
+      { label: "Contact", href: "/contact" },
       { label: "Donate", href: "/donate" },
-      { label: "Volunteer With Us", href: "/volunteerForm#volunteerForm" },
+      { label: "Volunteer With Us", href: "#" },
     ],
   },
 ];
@@ -180,7 +180,7 @@ const CustomNavbar: React.FC = () => {
         {/* APPLY BUTTON - visible on all screens */}
         <div className="flex lg:flex-none">
           <a
-            href="/apply"
+            href="/applications"
             className={`text-white rounded-lg shadow animate-[pulseGlow_2s_infinite] hover:scale-110 px-3 py-1 text-sm`}
             style={{ backgroundColor: PRIMARY_COLOR }}
           >

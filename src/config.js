@@ -1,7 +1,7 @@
 module.exports.SITE = {
-  name: 'TailNext',
+  name: 'West Nile Education Trust Fund',
 
-  origin: 'https://tailnext.vercel.app',
+  origin: 'https://wnetf.com',
   basePathname: '/',
   trailingSlash: false,
 

@@ -1,5 +1,4 @@
 import { Metadata } from 'next';
-
 import { SITE } from '~/config.js';
 
 import Providers from '~/components/atoms/Providers';
@@ -7,11 +6,10 @@ import Header from '~/components/widgets/Header';
 import Announcement from '~/components/widgets/Announcement';
 import Footer from '~/components/widgets/Footer';
 import FloatingMarathonCTA from '~/components/widgets/floatingmarathon';
-import MarathonPopup from '~/components/widgets/marathonpopup';
+// import MarathonPopup from '~/components/widgets/marathonpopup';
 
 import { Inter as CustomFont } from 'next/font/google';
 import '~/assets/styles/base.css';
-
 
 const customFont = CustomFont({ subsets: ['latin'], variable: '--font-custom' });
 
@@ -20,11 +18,49 @@ export interface LayoutProps {
 }
 
 export const metadata: Metadata = {
+  metadataBase: new URL(SITE.origin),
+
   title: {
     template: `%s — ${SITE.name}`,
     default: SITE.title,
   },
   description: SITE.description,
+  
+  keywords: [
+    'education',
+    'charity',
+    'scholarships',
+    'west nile',
+    'trust fund',
+    'uganda',
+  ],
+
+  openGraph: {
+    type: 'website',
+    locale: 'en_US',
+    url: SITE.origin,
+    siteName: SITE.name,
+    title: SITE.title,
+    description: SITE.description,
+    images: [
+      {
+        url: '/og-image.jpg', // place this file in /public folder
+        width: 1200,
+        height: 630,
+      },
+    ],
+  },
+
+  twitter: {
+    card: 'summary_large_image',
+    title: SITE.title,
+    description: SITE.description,
+    images: ['/og-image.jpg'],
+  },
+
+  alternates: {
+    canonical: SITE.origin,
+  },
 };
 
 export default function RootLayout({ children }: LayoutProps) {
@@ -36,7 +72,7 @@ export default function RootLayout({ children }: LayoutProps) {
       </head>
       <body className="tracking-tight antialiased text-gray-900 dark:text-slate-300 dark:bg-slate-900">
         <Providers>
-          <MarathonPopup /> 
+          {/* <MarathonPopup /> */}
           <Announcement />
           <Header />
           <FloatingMarathonCTA />

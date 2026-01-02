@@ -1,6 +1,6 @@
 'use client';
 
-import Image from 'next/image';
+import Image, {StaticImageData} from 'next/image';
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { IconChevronLeft, IconChevronRight } from '@tabler/icons-react';
@@ -9,11 +9,18 @@ import hero1 from '~/assets/images/hero1.jpg';
 import hero2 from '~/assets/images/hero2.jpg';
 import hero3 from '~/assets/images/hero3.jpg';
 
+interface HeroCarouselProps {
+  slides: StaticImageData[];
+  autoPlay?: boolean;
+  interval?: number;
+}
+
+
 /* ==================== SLIDES DATA ==================== */
 const slides = [hero1, hero2, hero3];
 
 /* ==================== HERO CAROUSEL ==================== */
-const HeroCarousel = ({ autoPlay = true, interval = 7000 }: { autoPlay?: boolean; interval?: number }) => {
+const HeroCarousel: React.FC<HeroCarouselProps> = ({ slides, autoPlay = true, interval = 7000 }) => {
   const [current, setCurrent] = useState(0);
 
   const nextSlide = () => setCurrent((prev) => (prev + 1) % slides.length);

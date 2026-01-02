@@ -136,7 +136,7 @@ export const teamHome: TeamProps = {
   teams: [
     {
       name: 'Charles Draecabo',
-      occupation: 'Project Manager',
+      occupation: 'Chair Person Board Of Trustees',
       image: {
         src: teamImg1, // Use the imported image variable
         alt: 'Charles Draecabo',
@@ -147,11 +147,11 @@ export const teamHome: TeamProps = {
       ],
     },
     {
-      name: 'Toby Foster',
-      occupation: 'Program Coordinator',
+      name: 'Badaru Carol',
+      occupation: 'Member Of Trustees',
       image: {
         src: teamImg2, // Use the imported image variable
-        alt: 'Toby Foster',
+        alt: 'Badaru Carol',
       },
       items: [
         { title: 'LinkedIn', icon: IconBrandLinkedin, href: '#' },

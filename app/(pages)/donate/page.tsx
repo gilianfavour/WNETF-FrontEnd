@@ -31,7 +31,7 @@ export default function DonateAllInOnePage(): JSX.Element {
     { amountUGX: 0, title: 'Give What You Can', desc: 'Flexible support for general programs and mentorship.', icon: IconCheck },
   ];
 
-  const bankDetails = { bankName: 'Stanbic Bank Uganda', accountName: 'West Nile Education Trust Fund', accountNumber: '9030011502476', currency: 'UGX', branch: 'Arua Branch' };
+  const bankDetails = { bankName: 'DFCU Bank', accountName: 'West Nile Education Trust Fund', accountNumber: '01171114199773', currency: 'UGX', branch: 'Lugogo' };
 
   const mobileMoney = { networks: [ { name: 'MTN Mobile Money', number: '+256 772 000000', ref: 'WNETF' }, { name: 'Airtel Money', number: '+256 755 000000', ref: 'WNETF' } ] };
 
@@ -280,10 +280,6 @@ export default function DonateAllInOnePage(): JSX.Element {
             <div>
               <label className="block text-sm font-medium mb-2">Choose payment method</label>
               <div className="space-y-3">
-                <button onClick={() => setPaymentMethod('card')} className={`w-full text-left rounded-lg border p-3 flex items-center gap-3 ${paymentMethod === 'card' ? 'border-sky-600 bg-sky-50' : 'border-slate-200'}`}>
-                  <IconCreditCard className="w-5 h-5 text-sky-600" />
-                  <div><div className="font-medium">Card</div><div className="text-sm text-slate-500">Visa / Mastercard</div></div>
-                </button>
                 <button onClick={() => setPaymentMethod('momo')} className={`w-full text-left rounded-lg border p-3 flex items-center gap-3 ${paymentMethod === 'momo' ? 'border-sky-600 bg-sky-50' : 'border-slate-200'}`}>
                   <IconPhone className="w-5 h-5 text-sky-600" />
                   <div><div className="font-medium">Mobile Money</div><div className="text-sm text-slate-500">Follow instructions on your phone</div></div>
