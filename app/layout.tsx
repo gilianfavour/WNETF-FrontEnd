@@ -11,6 +11,7 @@ import FloatingMarathonCTA from '~/components/widgets/floatingmarathon';
 import { Inter as CustomFont } from 'next/font/google';
 import '~/assets/styles/base.css';
 
+
 const customFont = CustomFont({ subsets: ['latin'], variable: '--font-custom' });
 
 export interface LayoutProps {
