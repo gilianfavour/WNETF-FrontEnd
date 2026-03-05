@@ -48,3 +48,5 @@ public/robots.txt
 # OS
 .DS_Store
 Thumbs.db
+
+*.zip
