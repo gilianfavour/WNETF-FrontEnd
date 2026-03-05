@@ -49,6 +49,7 @@ const Content = ({
                 sizes="(max-width: 768px) 100vw, 432px"
                 placeholder="blur"
                 quality={50}
+                priority
               />
             </div>
           )}

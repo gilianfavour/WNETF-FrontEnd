@@ -16,6 +16,7 @@ const SocialProof = ({ images, id, hasBackground = false }: SocialProofProps) =>
                 object-fit="contain"
                 width={64}
                 height={64}
+                priority
               />
             </a>
           </div>

@@ -1,15 +1,20 @@
 const SITE = require('./src/config.js').SITE;
 
 /** @type {import('next').NextConfig} */
-module.exports = {
+const nextConfig = {
   reactStrictMode: true,
+
+  // Required for static export (cPanel)
+  output: 'export',
 
   trailingSlash: SITE.trailingSlash,
   basePath: SITE.basePathname !== '/' ? SITE.basePathname : '',
 
-  swcMinify: true,
+  // swcMinify: true,
   poweredByHeader: false,
+
   images: {
+    unoptimized: true,
     remotePatterns: [
       {
         protocol: 'https',
@@ -19,13 +24,6 @@ module.exports = {
         protocol: 'https',
         hostname: 'source.unsplash.com',
       },
-    ],
-  }
-};
-
-const nextConfig = {
-  images: {
-    remotePatterns: [
       {
         protocol: 'https',
         hostname: 'via.placeholder.com',

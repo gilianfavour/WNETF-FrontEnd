@@ -39,6 +39,7 @@ import partnerLogo2 from '~/assets/images/partnerLogo2.png'
 import partnerLogo3 from '~/assets/rdm.png'
 import partnerLogo4 from '~/assets/images/wnf.png'
 import partnerLogo5 from '~/assets/images/candia.jpg'
+import marathonBanner from '~/assets/images/hero1.jpg';
 
 
 /* ==================== HERO SLIDES DATA ==================== */
@@ -232,4 +233,17 @@ export const teamHome: TeamProps = {
       ],
     },
   ],
+};
+
+
+export const marathonCTA = {
+  title: "WNETF Arua Marathon 2025",
+  subtitle: "Run for Education • Support Students • Build the Future",
+  kitInfo: "Running kits available at UGX 35,000 — Get yours at official kit locations.",
+  image: marathonBanner,
+  buttons: [
+    { text: "Register Now", href: "#register", color: "blue" },
+    { text: "Learn More", href: "#details", color: "blue-outline" },
+    { text: "Get Your Kit", href: "#kits", color: "yellow-outline" }
+  ]
 };

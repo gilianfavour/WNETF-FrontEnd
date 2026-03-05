@@ -125,39 +125,53 @@ export default function WNETFMarathonPage() {
       </section>
 
       {/* CTA */}
-     <section className="py-16 px-4 md:px-8 bg-gradient-to-r from-[#E1F5FE] to-white text-center">
-  <div className="max-w-4xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6 md:gap-12">
-    {/* Left: Image */}
-    <div className="md:w-1/2">
-      <Image src={marathonCTA.image} alt="Marathon Banner" className="rounded-lg shadow-lg" />
-    </div>
+      <section className="py-16 px-4 md:px-8 bg-gradient-to-r from-[#E1F5FE] to-white text-center">
+        <div className="max-w-4xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6 md:gap-12">
+          {/* Left: Image */}
+          <div className="md:w-1/2">
+            <Image src={marathonCTA.image} alt="Marathon Banner" className="rounded-lg shadow-lg" priority/>
+          </div>
 
-    {/* Right: Text & Buttons */}
-    <div className="md:w-1/2 text-center md:text-left">
-      <h2 className="text-4xl md:text-5xl font-extrabold mb-4" style={{ color: PRIMARY_BLUE }}>
-        {marathonCTA.title}
-      </h2>
-      <p className="text-lg md:text-xl mb-4 text-gray-700">{marathonCTA.subtitle}</p>
-      <p className="text-lg text-gray-700 mb-6">{marathonCTA.kitInfo}</p>
+          {/* Right: Text & Buttons */}
+          <div className="md:w-1/2 text-center md:text-left">
+            <h2 className="text-4xl md:text-5xl font-extrabold mb-4" style={{ color: PRIMARY_BLUE }}>
+              {marathonCTA.title}
+            </h2>
+            <p className="text-lg md:text-xl mb-4 text-gray-700">{marathonCTA.subtitle}</p>
+            <p className="text-lg text-gray-700 mb-6">{marathonCTA.kitInfo}</p>
 
-      <div className="flex flex-col md:flex-row gap-4 md:gap-6">
-        {marathonCTA.buttons.map((btn) => (
-          <a
-            key={btn.text}
-            href={btn.href}
-            className={`px-6 py-3 text-lg font-bold rounded-full shadow-lg transition-transform hover:scale-105
-              ${btn.color === 'blue' ? 'bg-blue-800 text-white' : ''}
-              ${btn.color === 'blue-outline' ? 'border-2 border-blue-800 text-blue-800 hover:bg-blue-800 hover:text-white' : ''}
-              ${btn.color === 'yellow-outline' ? 'border-2 border-yellow-400 text-yellow-700 hover:bg-yellow-400 hover:text-blue-800' : ''}`}
-          >
-            {btn.text} {btn.text === 'Register Now' && <IconArrowRight />}
-          </a>
-        ))}
-      </div>
-    </div>
-  </div>
-</section>
+            <div className="flex flex-col md:flex-row gap-4 md:gap-6">
+              <a
+                href={marathonCTA.buttons.find((btn) => btn.text === 'Learn More')?.href || '#'}
+                className="
+                  px-8 py-3 text-lg font-semibold rounded-full 
+                  border-2 border-blue-900 text-blue-900 
+                  hover:bg-blue-900 hover:text-white 
+                  shadow-md hover:shadow-xl 
+                  transition-all duration-300
+                  text-center
+                "
+                          >
+                            Learn More
+                          </a>
 
+                          <a
+                            href={marathonCTA.buttons.find((btn) => btn.text === 'Get Kit')?.href || '#'}
+                            className="
+                  px-8 py-3 text-lg font-semibold rounded-full 
+                  border-2 border-yellow-400 text-yellow-600 
+                  hover:bg-yellow-400 hover:text-blue-900 
+                  shadow-md hover:shadow-xl 
+                  transition-all duration-300
+                  text-center
+                "
+              >
+                Get Kit
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
     </div>
   );
 }

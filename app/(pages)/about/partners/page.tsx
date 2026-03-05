@@ -55,6 +55,7 @@ const PartnersPage: React.FC = () => {
                                         src={partner.src}
                                         alt={partner.alt}
                                         className="w-full h-auto object-contain max-h-24"
+                                        priority
                                     />
                                 )}
                             </div>
