@@ -1,8 +1,34 @@
 "use client";
+import { useState } from "react";
 import { FaFacebook, FaTwitter, FaLinkedin, FaHeart, FaMapMarkerAlt, FaEnvelope, FaPhone } from "react-icons/fa";
+
+const API_BASE = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:8000';
 
 export default function Footer() {
   const primaryColor = "#2596be";
+  const [subEmail, setSubEmail] = useState('');
+  const [subStatus, setSubStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle');
+  const [subMessage, setSubMessage] = useState('');
+
+  const handleSubscribe = async (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!subEmail) return;
+    setSubStatus('loading');
+    try {
+      const res = await fetch(`${API_BASE}/api/subscribe/`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email: subEmail }),
+      });
+      const data = await res.json();
+      setSubMessage(data.message);
+      setSubStatus('success');
+      setSubEmail('');
+    } catch {
+      setSubMessage('Something went wrong. Please try again.');
+      setSubStatus('error');
+    }
+  };
   
   return (
     <footer className="bg-gradient-to-t from-gray-900 to-gray-800 text-gray-200 pt-6 pb-4 mt-0.5 border-t border-gray-700">
@@ -96,7 +122,7 @@ export default function Footer() {
             </div>
 
             {/* Newsletter */}
-            <form className="space-y-3">
+            <form className="space-y-3" onSubmit={handleSubscribe}>
               <label className="text-gray-300 text-sm font-medium">
                 Get Scholarship Updates
               </label>
@@ -104,17 +130,27 @@ export default function Footer() {
                 <input
                   type="email"
                   placeholder="Your email address"
+                  value={subEmail}
+                  onChange={e => setSubEmail(e.target.value)}
+                  required
+                  disabled={subStatus === 'loading'}
                   className="flex-1 px-4 py-2.5 rounded-lg text-gray-900 focus:ring-2 transition-all duration-300"
                   style={{ borderColor: primaryColor }}
                 />
                 <button
                   type="submit"
+                  disabled={subStatus === 'loading'}
                   className="text-white px-5 py-2.5 rounded-lg font-semibold"
                   style={{ backgroundColor: primaryColor }}
                 >
-                  Subscribe
+                  {subStatus === 'loading' ? '…' : 'Subscribe'}
                 </button>
               </div>
+              {subMessage && (
+                <p className={`text-xs mt-1 ${subStatus === 'error' ? 'text-red-400' : 'text-green-400'}`}>
+                  {subMessage}
+                </p>
+              )}
             </form>
           </div>
         </div>

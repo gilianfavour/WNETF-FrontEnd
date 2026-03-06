@@ -19,7 +19,7 @@
 //     "jsx": "preserve",
 //     "incremental": true,
 //     "baseUrl": ".",
-//     "ignoreDeprecations": "6.0",
+//     "ignoreDeprecations": "5.0",
 //     "paths": {
 //       "~/*": [
 //         "src/*"
@@ -64,7 +64,7 @@
     "incremental": true,
     "baseUrl": ".",
     // Remove deprecated baseUrl and silence warnings
-    "ignoreDeprecations": "6.0",
+    "ignoreDeprecations": "5.0",
     // Absolute imports using paths
     "paths": {
       "~/*": [

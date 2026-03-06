@@ -23,11 +23,15 @@ export default function ApplicationsPage() {
     phone: string;
     course: string;
     university: string;
+    universityRegNumber: string;
+    universityEmail: string;
+    studentNumber: string;
     district: string;
     otherDistrict: string;
     guardianName: string;
     address: string;
     grades: string;
+    personalStatement: string;
     attachment: File | null;
   }>({
     fullName: '',
@@ -36,20 +40,33 @@ export default function ApplicationsPage() {
     phone: '',
     course: '',
     university: '',
+    universityRegNumber: '',
+    universityEmail: '',
+    studentNumber: '',
     district: '',
     otherDistrict: '',
     guardianName: '',
     address: '',
     grades: '',
+    personalStatement: '',
     attachment: null,
   });
 
   const [submitted, setSubmitted] = useState(false);
 
+  const wordCount = formData.personalStatement.trim()
+    ? formData.personalStatement.trim().split(/\s+/).length
+    : 0;
+  const WORD_LIMIT = 250;
+
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>
   ) => {
     const { name, value } = e.target;
+    if (name === 'personalStatement') {
+      const words = value.trim() ? value.trim().split(/\s+/).length : 0;
+      if (words > WORD_LIMIT) return;
+    }
     setFormData(prev => ({ ...prev, [name]: value }));
   };
 
@@ -60,13 +77,39 @@ export default function ApplicationsPage() {
     }
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const [submitting, setSubmitting] = useState(false);
+  const [submitError, setSubmitError] = useState('');
+  const API_BASE = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:8000';
+
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!formData.attachment) {
       alert('Please upload a required document before submitting.');
       return;
     }
-    setSubmitted(true);
+    setSubmitting(true);
+    setSubmitError('');
+    try {
+      const body = new FormData();
+      (Object.keys(formData) as Array<keyof typeof formData>).forEach(key => {
+        const val = formData[key];
+        if (val !== null) body.append(key, val as string | Blob);
+      });
+      const res = await fetch(`${API_BASE}/api/applications/submit/`, {
+        method: 'POST',
+        body,
+      });
+      if (!res.ok) {
+        const err = await res.json();
+        setSubmitError(JSON.stringify(err));
+      } else {
+        setSubmitted(true);
+      }
+    } catch {
+      setSubmitError('Network error. Please check your connection and try again.');
+    } finally {
+      setSubmitting(false);
+    }
   };
 
   if (submitted) {
@@ -216,6 +259,49 @@ export default function ApplicationsPage() {
               </div>
             </div>
 
+            <div className={styles.formRow}>
+              <div className={styles.formGroup}>
+                <label htmlFor="universityRegNumber">University Registration Number *</label>
+                <input
+                  type="text"
+                  id="universityRegNumber"
+                  name="universityRegNumber"
+                  placeholder="e.g., 24/U/1234"
+                  value={formData.universityRegNumber}
+                  onChange={handleChange}
+                  required
+                />
+              </div>
+
+              <div className={styles.formGroup}>
+                <label htmlFor="studentNumber">Student Number *</label>
+                <input
+                  type="text"
+                  id="studentNumber"
+                  name="studentNumber"
+                  placeholder="e.g., 2400123456"
+                  value={formData.studentNumber}
+                  onChange={handleChange}
+                  required
+                />
+              </div>
+            </div>
+
+            <div className={styles.formRow}>
+              <div className={styles.formGroup}>
+                <label htmlFor="universityEmail">University Email *</label>
+                <input
+                  type="email"
+                  id="universityEmail"
+                  name="universityEmail"
+                  placeholder="e.g., s24.1234@students.mak.ac.ug"
+                  value={formData.universityEmail}
+                  onChange={handleChange}
+                  required
+                />
+              </div>
+            </div>
+
             <div className={styles.formGroup}>
               <label htmlFor="grades">Academic Achievements *</label>
               <textarea
@@ -297,6 +383,27 @@ export default function ApplicationsPage() {
           </div>
 
           <div className={styles.formSection}>
+            <h3>Personal Statement</h3>
+            <div className={styles.formGroup}>
+              <label htmlFor="personalStatement">
+                Why do you need this scholarship? * <span className={styles.wordLimitHint}>(max 250 words)</span>
+              </label>
+              <textarea
+                id="personalStatement"
+                name="personalStatement"
+                placeholder="In 250 words or fewer, tell us about your background, financial circumstances, and why you believe you deserve this scholarship..."
+                value={formData.personalStatement}
+                onChange={handleChange}
+                rows={8}
+                required
+              />
+              <p className={`${styles.wordCounter} ${wordCount >= WORD_LIMIT ? styles.wordCounterLimit : ''}`}>
+                {wordCount} / {WORD_LIMIT} words
+              </p>
+            </div>
+          </div>
+
+          <div className={styles.formSection}>
             <h3>Supporting Documents</h3>
             <div className={styles.formGroup}>
               <label htmlFor="attachment">Upload Documents *</label>
@@ -315,8 +422,14 @@ export default function ApplicationsPage() {
             </div>
           </div>
 
-          <button type="submit" className={styles.submitBtn}>
-            Submit Application
+          {submitError && (
+            <p style={{ color: '#dc2626', marginBottom: '1rem', fontSize: '0.9rem' }}>
+              {submitError}
+            </p>
+          )}
+
+          <button type="submit" className={styles.submitBtn} disabled={submitting}>
+            {submitting ? 'Submitting…' : 'Submit Application'}
           </button>
         </form>
       </div>

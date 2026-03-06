@@ -255,6 +255,24 @@
   margin: 0;
 }
 
+.wordLimitHint {
+  font-size: 0.8rem;
+  color: #6b7280;
+  font-weight: 400;
+}
+
+.wordCounter {
+  font-size: 0.82rem;
+  color: #6b7280;
+  text-align: right;
+  margin: 0.25rem 0 0;
+}
+
+.wordCounterLimit {
+  color: #dc2626;
+  font-weight: 600;
+}
+
 .submitBtn {
   background: linear-gradient(135deg, #032B53 0%, #065286 100%);
   color: #fff;

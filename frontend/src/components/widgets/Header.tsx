@@ -52,6 +52,7 @@ const NAV_LINKS = [
     ],
   },
   { label: "What we do", href: "/whatwedo", links: [] },
+  { label: "Beneficiaries", href: "/beneficiaries", links: [] },
   {
     label: "Latest",
     links: [

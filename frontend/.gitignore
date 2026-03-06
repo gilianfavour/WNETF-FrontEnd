@@ -50,3 +50,6 @@ public/robots.txt
 Thumbs.db
 
 *.zip
+
+ .claude/
+ venv/

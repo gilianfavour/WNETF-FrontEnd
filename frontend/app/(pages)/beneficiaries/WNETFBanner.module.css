@@ -314,6 +314,152 @@ width: 100%;
 
 
 
+/* Beneficiaries Showcase Section */
+.beneficiariesSection {
+  background: linear-gradient(135deg, #f0f9ff 0%, #e8eef5 100%);
+  padding: 5rem 1.5rem;
+}
+
+.beneficiariesContainer {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.beneficiariesHeader {
+  text-align: center;
+  margin-bottom: 3.5rem;
+}
+
+.beneficiariesTag {
+  display: inline-block;
+  padding: 0.35rem 1.25rem;
+  background: rgba(3, 43, 83, 0.08);
+  border: 1px solid rgba(3, 43, 83, 0.15);
+  border-radius: 2rem;
+  color: #032B53;
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  margin-bottom: 1rem;
+}
+
+.beneficiariesHeading {
+  font-size: 2.25rem;
+  font-weight: 800;
+  color: #032B53;
+  margin-bottom: 1rem;
+}
+
+.beneficiariesSubtitle {
+  font-size: 1.1rem;
+  color: #64748b;
+  max-width: 560px;
+  margin: 0 auto;
+  line-height: 1.6;
+}
+
+.beneficiariesGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 2rem;
+}
+
+.beneficiaryCard {
+  background: white;
+  border-radius: 1.25rem;
+  overflow: hidden;
+  box-shadow: 0 4px 20px rgba(3, 43, 83, 0.08);
+  transition: all 0.3s ease;
+  border: 1px solid rgba(3, 43, 83, 0.06);
+}
+
+.beneficiaryCard:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 16px 40px rgba(3, 43, 83, 0.15);
+}
+
+.beneficiaryPhotoWrapper {
+  position: relative;
+  width: 100%;
+  height: 220px;
+  background: linear-gradient(135deg, #e0f2fe 0%, #bae6fd 100%);
+  overflow: hidden;
+}
+
+.beneficiaryPhoto {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.beneficiaryPhotoFallback {
+  display: none;
+  width: 100%;
+  height: 100%;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #dbeafe 0%, #bfdbfe 100%);
+}
+
+.fallbackIcon {
+  width: 72px;
+  height: 72px;
+  color: #93c5fd;
+}
+
+.yearBadge {
+  position: absolute;
+  bottom: 0.75rem;
+  right: 0.75rem;
+  background: #032B53;
+  color: white;
+  font-size: 0.75rem;
+  font-weight: 700;
+  padding: 0.3rem 0.85rem;
+  border-radius: 2rem;
+}
+
+.beneficiaryInfo {
+  padding: 1.25rem 1.5rem 1.5rem;
+}
+
+.beneficiaryName {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: #032B53;
+  margin-bottom: 0.35rem;
+}
+
+.beneficiaryCourse {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #0369a1;
+  margin-bottom: 0.25rem;
+  line-height: 1.4;
+}
+
+.beneficiaryUniversity {
+  font-size: 0.85rem;
+  color: #64748b;
+  margin-bottom: 0.75rem;
+}
+
+.beneficiaryDistrict {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+  font-size: 0.82rem;
+  color: #94a3b8;
+  font-weight: 500;
+}
+
+.districtIcon {
+  width: 14px;
+  height: 14px;
+  flex-shrink: 0;
+}
+
 /* 60 Million Challenge Section */
 .challengeSection {
   position: relative;

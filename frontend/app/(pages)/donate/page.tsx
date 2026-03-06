@@ -71,16 +71,31 @@ export default function DonateAllInOnePage(): JSX.Element {
   const goNext = () => { setError(null); if (!validStep(step)) { setError('Please complete the required fields before continuing.'); return; } setStep((s) => Math.min(6, s + 1)); };
   const goBack = () => { setError(null); setStep((s) => Math.max(1, s - 1)); };
 
+  const API_BASE = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:8000';
+
   const handlePay = async () => {
     setError(null);
     if (!validStep(4)) { setStep(4); setError('Please fill donor information correctly.'); return; }
     setIsProcessing(true);
     try {
-      await new Promise((r) => setTimeout(r, 1600));
-      if (Math.random() < 0.05) throw new Error('Payment declined by the gateway. Try another method.');
+      const res = await fetch(`${API_BASE}/api/donate/`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          name: anonymous ? 'Anonymous' : name,
+          email: anonymous ? 'anonymous@wnetf.org' : email,
+          phone,
+          amount,
+          currency: 'UGX',
+          frequency: frequency === 'monthly' ? 'monthly' : 'once',
+          message: note,
+          is_anonymous: anonymous,
+        }),
+      });
+      if (!res.ok) throw new Error('Submission failed. Please try again.');
       setCompleted(true);
       setStep(6);
-    } catch (err: any) { setError(err?.message || 'Payment failed. Please try again.'); }
+    } catch (err: any) { setError(err?.message || 'Submission failed. Please try again.'); }
     finally { setIsProcessing(false); }
   };
 

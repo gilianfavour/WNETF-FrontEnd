@@ -4,6 +4,8 @@ import { useState } from 'react';
 import { twMerge } from 'tailwind-merge';
 import { FormProps } from '../../shared/types';
 
+const API_BASE = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:8000';
+
 const Form = ({
   title,
   description,
@@ -19,6 +21,9 @@ const Form = ({
   const [radioBtnValue, setRadioBtnValue] = useState('');
   const [textareaValues, setTextareaValues] = useState('');
   const [checkedState, setCheckedState] = useState<boolean[]>(new Array(checkboxes && checkboxes.length).fill(false));
+  const [submitting, setSubmitting] = useState(false);
+  const [submitMsg, setSubmitMsg] = useState('');
+  const [submitErr, setSubmitErr] = useState(false);
 
   // Update the value of the entry fields
   const changeInputValueHandler = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -51,8 +56,37 @@ const Form = ({
     });
   };
 
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setSubmitting(true);
+    setSubmitMsg('');
+    const vals: Record<string, string> = inputValues;
+    const firstName = vals['name'] || '';
+    const lastName = vals['lastName'] || '';
+    try {
+      const res = await fetch(`${API_BASE}/api/contact/`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          name: `${firstName} ${lastName}`.trim(),
+          email: vals['email'] || '',
+          subject: radioBtnValue || 'General inquiry',
+          message: textareaValues,
+        }),
+      });
+      const data = await res.json();
+      setSubmitErr(!res.ok);
+      setSubmitMsg(data.message || (res.ok ? 'Message sent!' : 'Something went wrong.'));
+    } catch {
+      setSubmitErr(true);
+      setSubmitMsg('Network error. Please try again.');
+    } finally {
+      setSubmitting(false);
+    }
+  };
+
   return (
-    <form id="contactForm" className={twMerge('', containerClass)}>
+    <form id="contactForm" className={twMerge('', containerClass)} onSubmit={handleSubmit}>
       {title && <h2 className={`${description ? 'mb-2' : 'mb-4'} text-2xl font-bold`}>{title}</h2>}
       {description && <p className="mb-4">{description}</p>}
       <div className="mb-6">
@@ -144,10 +178,13 @@ const Form = ({
         <div
           className={`${btnPosition === 'left' ? 'text-left' : btnPosition === 'right' ? 'text-right' : 'text-center'}`}
         >
-          <button type={btn.type || 'button'} className="btn btn-primary sm:mb-0">
-            {btn.title}
+          <button type={btn.type || 'button'} disabled={submitting} className="btn btn-primary sm:mb-0">
+            {submitting ? 'Sending…' : btn.title}
           </button>
         </div>
+      )}
+      {submitMsg && (
+        <p className={`mt-3 text-sm ${submitErr ? 'text-red-600' : 'text-green-600'}`}>{submitMsg}</p>
       )}
     </form>
   );
