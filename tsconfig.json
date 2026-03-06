@@ -60,20 +60,17 @@
     "moduleResolution": "bundler",
     "resolveJsonModule": true,
     "isolatedModules": true,
-    "jsx": "react-jsx",
+    "jsx": "preserve",
     "incremental": true,
     "baseUrl": ".",
-
     // Remove deprecated baseUrl and silence warnings
     "ignoreDeprecations": "6.0",
-
     // Absolute imports using paths
     "paths": {
       "~/*": [
         "src/*"
       ]
     },
-
     "plugins": [
       {
         "name": "next"
