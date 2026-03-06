@@ -70,6 +70,8 @@ venv\Scripts\activate       # Windows
 pip install -r backend/requirements.txt
 ```
 
+> This will install all required Python packages listed in `requirements.txt`.
+
 3. **Configure environment**
 
 * Update `backend/.env` or `backend/settings.py` with:
@@ -91,36 +93,3 @@ python manage.py runserver
 ```
 
 ---
-
-## Frontend Setup
-
-* Navigate to the frontend folder:
-
-```bash
-cd frontend
-```
-
-* Install dependencies (if using Node.js/React/Next.js):
-
-```bash
-npm install
-```
-
-* Start the frontend development server:
-
-```bash
-npm run dev   # Next.js
-# or
-npm start     # React
-```
-
----
-
-## Notes
-
-* Ensure MySQL user has privileges for creating and accessing databases.
-* The backend is Django-based (<5 version); the frontend can be React, Next.js, or static HTML/CSS/JS.
-* The database includes preloaded sample data for development/testing.
-
----
-
