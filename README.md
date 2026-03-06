@@ -4,17 +4,19 @@
 
 This repository contains the **WNETF** project, structured with a **frontend** and **backend**, along with a ready-to-use MySQL database.
 
-
+---
 
 ## Project Structure
 
-
+```
 wnetf/
 │
 ├─ backend/          # Django backend (API, models, database connection)
 │
 └─ frontend/         # Frontend application (HTML/CSS/JS or React/Next.js)
+```
 
+---
 
 ## Prerequisites
 
@@ -23,7 +25,7 @@ wnetf/
 * MySQL 8.0+
 * Node.js (if using a JS frontend like React/Next.js)
 
-
+---
 
 ## Database Setup
 
@@ -121,5 +123,4 @@ npm start     # React
 * The database includes preloaded sample data for development/testing.
 
 ---
-
 
