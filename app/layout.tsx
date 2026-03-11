@@ -7,6 +7,7 @@ import Announcement from '~/components/widgets/Announcement';
 import Footer from '~/components/widgets/Footer';
 import FloatingMarathonCTA from '~/components/widgets/floatingmarathon';
 // import MarathonPopup from '~/components/widgets/marathonpopup';
+import SiteShell from '~/components/Siteshell';
 
 import { Inter as CustomFont } from 'next/font/google';
 import '~/assets/styles/base.css';
@@ -72,12 +73,19 @@ export default function RootLayout({ children }: LayoutProps) {
       </head>
       <body className="tracking-tight antialiased text-gray-900 dark:text-slate-300 dark:bg-slate-900">
         <Providers>
-          {/* <MarathonPopup /> */}
-          <Announcement />
-          <Header />
-          <FloatingMarathonCTA />
-          <main>{children}</main>
-          <Footer />
+          <SiteShell
+            navbar={
+              <>
+                {/* <MarathonPopup /> */}
+                <Announcement />
+                <Header />
+                <FloatingMarathonCTA />
+              </>
+            }
+            footer={<Footer />}
+          >
+            <main>{children}</main>
+          </SiteShell>
         </Providers>
       </body>
     </html>
