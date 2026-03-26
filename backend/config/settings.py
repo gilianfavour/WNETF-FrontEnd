@@ -161,3 +161,8 @@ STATIC_URL = 'static/'
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+# Superadmin credentials (used by /api/management/login/)
+SUPERADMIN_USERNAME = config('SUPERADMIN_USERNAME', default='superadmin')
+SUPERADMIN_EMAIL = config('SUPERADMIN_EMAIL', default='superadmin@wnetf.org')
+SUPERADMIN_PASSWORD = config('SUPERADMIN_PASSWORD', default='superadmin123')
