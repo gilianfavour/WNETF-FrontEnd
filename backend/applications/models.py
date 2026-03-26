@@ -45,3 +45,23 @@ class Application(models.Model):
 
     def __str__(self):
         return f"{self.full_name} — {self.university} ({self.status})"
+
+
+class ApplicationNote(models.Model):
+    NOTE_TYPES = [
+        ('comment',    'Comment'),
+        ('assignment', 'Assignment'),
+    ]
+
+    application = models.ForeignKey(Application, on_delete=models.CASCADE, related_name='notes')
+    author      = models.CharField(max_length=200)          # logged-in user's name
+    body        = models.TextField(blank=True)
+    note_type   = models.CharField(max_length=20, choices=NOTE_TYPES, default='comment')
+    assigned_to = models.CharField(max_length=200, blank=True)  # filled when type=assignment
+    created_at  = models.DateTimeField(auto_now_add=True)
+
+    class Meta:
+        ordering = ['created_at']
+
+    def __str__(self):
+        return f"[{self.note_type}] {self.author} on #{self.application_id}"
