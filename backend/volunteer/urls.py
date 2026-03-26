@@ -1,6 +1,10 @@
-from django.urls import path
-from .views import VolunteerCreateView, VolunteerListView
+from django.urls import path, include
+from rest_framework.routers import DefaultRouter
+from .views import VolunteerViewSet
+
+router = DefaultRouter()
+router.register(r'', VolunteerViewSet)
+
 urlpatterns = [
-    path('', VolunteerCreateView.as_view(), name='volunteer'),
-    path('list/', VolunteerListView.as_view(), name='volunteer-list'),
+    path('', include(router.urls)),
 ]

@@ -14,4 +14,5 @@ urlpatterns = [
     path('api/impact/', include('impact.urls')),
     path('api/events/', include('events.urls')),
     path('api/blog/', include('blog.urls')),
+    path('api/management/', include('management.urls')),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

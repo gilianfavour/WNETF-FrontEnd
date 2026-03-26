@@ -1,6 +1,10 @@
-from django.urls import path
-from .views import DonationCreateView, DonationListView
+from django.urls import path, include
+from rest_framework.routers import DefaultRouter
+from .views import DonationViewSet
+
+router = DefaultRouter()
+router.register(r'', DonationViewSet, basename='donation')
+
 urlpatterns = [
-    path('', DonationCreateView.as_view(), name='donate'),
-    path('records/', DonationListView.as_view(), name='donation-list'),
+    path('', include(router.urls)),
 ]

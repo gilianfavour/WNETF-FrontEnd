@@ -1,7 +1,11 @@
-from django.urls import path
-from .views import ImpactStatListView, ImpactStoryListView, ImpactStoryDetailView
+from django.urls import path, include
+from rest_framework.routers import DefaultRouter
+from .views import ImpactStatViewSet, ImpactStoryViewSet
+
+router = DefaultRouter()
+router.register(r'stats', ImpactStatViewSet, basename='impact-stat')
+router.register(r'stories', ImpactStoryViewSet, basename='impact-story')
+
 urlpatterns = [
-    path('stats/', ImpactStatListView.as_view(), name='impact-stats'),
-    path('stories/', ImpactStoryListView.as_view(), name='impact-stories'),
-    path('stories/<int:pk>/', ImpactStoryDetailView.as_view(), name='impact-story-detail'),
+    path('', include(router.urls)),
 ]

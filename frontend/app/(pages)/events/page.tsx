@@ -53,7 +53,11 @@ export default function EventsPage() {
   const [tab, setTab] = useState<'upcoming' | 'past'>('upcoming');
 
   useEffect(() => {
-    fetch(`${API_BASE}/api/events/`).then(r => r.json()).then(setEvents).catch(() => {}).finally(() => setLoading(false));
+    fetch(`${API_BASE}/events/`)
+      .then(r => r.json())
+      .then(data => setEvents(data.results || data))
+      .catch((err) => console.error(err))
+      .finally(() => setLoading(false));
   }, []);
 
   const upcoming = events.filter(e => e.is_upcoming);
