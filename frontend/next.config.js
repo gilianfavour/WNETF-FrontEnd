@@ -5,7 +5,7 @@ const nextConfig = {
   reactStrictMode: true,
 
   // Required for static export (cPanel)
-  output: 'export',
+  // output: 'export',
 
   trailingSlash: SITE.trailingSlash,
   basePath: SITE.basePathname !== '/' ? SITE.basePathname : '',

@@ -74,9 +74,9 @@ export default function WNETFBanner() {
   const [loadingBeneficiaries, setLoadingBeneficiaries] = useState(true);
 
   useEffect(() => {
-    fetch(`${API_BASE}/api/beneficiaries/`)
+    fetch(`${API_BASE}/beneficiaries/`)
       .then(res => res.json())
-      .then(data => setBeneficiaries(data))
+      .then(data => setBeneficiaries(data.results || data))
       .catch(() => {/* silently fall through — grid stays empty */})
       .finally(() => setLoadingBeneficiaries(false));
   }, []);

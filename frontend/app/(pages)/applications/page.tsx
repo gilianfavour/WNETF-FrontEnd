@@ -91,17 +91,34 @@ export default function ApplicationsPage() {
     setSubmitError('');
     try {
       const body = new FormData();
-      (Object.keys(formData) as Array<keyof typeof formData>).forEach(key => {
-        const val = formData[key];
-        if (val !== null) body.append(key, val as string | Blob);
-      });
-      const res = await fetch(`${API_BASE}/api/applications/submit/`, {
+      
+      // Map frontend camelCase to backend snake_case
+      body.append('full_name', formData.fullName);
+      body.append('dob', formData.dob);
+      body.append('email', formData.email);
+      body.append('phone', formData.phone);
+      body.append('course', formData.course);
+      body.append('university', formData.university);
+      body.append('university_reg_number', formData.universityRegNumber);
+      body.append('university_email', formData.universityEmail);
+      body.append('student_number', formData.studentNumber);
+      body.append('district', formData.district);
+      body.append('other_district', formData.otherDistrict);
+      body.append('guardian_name', formData.guardianName);
+      body.append('address', formData.address);
+      body.append('grades', formData.grades);
+      body.append('personal_statement', formData.personalStatement);
+      if (formData.attachment) body.append('attachment', formData.attachment);
+
+      const res = await fetch(`${API_BASE}/applications/submit/`, {
         method: 'POST',
         body,
       });
+
       if (!res.ok) {
         const err = await res.json();
-        setSubmitError(JSON.stringify(err));
+        console.error('Submission error details:', err);
+        setSubmitError(`Validation Error: ${Object.entries(err).map(([k,v]) => `${k}: ${v}`).join(', ')}`);
       } else {
         setSubmitted(true);
       }

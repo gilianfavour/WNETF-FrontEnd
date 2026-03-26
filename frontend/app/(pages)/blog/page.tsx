@@ -73,7 +73,11 @@ export default function BlogPage() {
   const [selected, setSelected] = useState<BlogPost | null>(null);
 
   useEffect(() => {
-    fetch(`${API_BASE}/api/blog/`).then(r => r.json()).then(setPosts).catch(() => {}).finally(() => setLoading(false));
+    fetch(`${API_BASE}/blog/`)
+      .then(r => r.json())
+      .then(data => setPosts(data.results || data))
+      .catch((err) => console.error(err))
+      .finally(() => setLoading(false));
   }, []);
 
   const filtered = posts.filter(p => {
