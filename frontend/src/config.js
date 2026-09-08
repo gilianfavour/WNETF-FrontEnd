@@ -3,7 +3,7 @@ module.exports.SITE = {
 
   origin: 'https://wnetf.com',
   basePathname: '/',
-  trailingSlash: false,
+  trailingSlash: true,
 
   title: 'West Nile Education Trust Fund',
   description: 'WNETF is an intiative to help the under previlaged in WestNile access Education',

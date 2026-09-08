@@ -13,7 +13,7 @@ import { Inter as CustomFont } from 'next/font/google';
 import '~/assets/styles/base.css';
 
 
-const customFont = CustomFont({ subsets: ['latin'], variable: '--font-custom' });
+const customFont = CustomFont({ subsets: ['latin'], variable: '--font-custom', display: 'swap', adjustFontFallback: false });
 
 export interface LayoutProps {
   children: React.ReactNode;
