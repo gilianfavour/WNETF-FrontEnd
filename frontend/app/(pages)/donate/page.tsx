@@ -20,7 +20,7 @@ const UGX = (value: number | null) =>
 
 const clamp = (v: number, a = 0, b = Number.MAX_SAFE_INTEGER) => Math.max(a, Math.min(b, v));
 
-export default function DonateAllInOnePage(): JSX.Element {
+export default function DonateAllInOnePage() {
   const PRIMARY = 'text-sky-700';
   const btnPrimary = 'bg-sky-700 hover:bg-sky-800 text-white';
 

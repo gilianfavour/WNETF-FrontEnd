@@ -44,7 +44,7 @@
 // }
 {
   "compilerOptions": {
-    "target": "es5",
+    "target": "es2022",
     "lib": [
       "dom",
       "dom.iterable",
@@ -62,10 +62,8 @@
     "isolatedModules": true,
     "jsx": "react-jsx",
     "incremental": true,
-    "baseUrl": ".",
-    // Remove deprecated baseUrl and silence warnings
     "ignoreDeprecations": "5.0",
-    // Absolute imports using paths
+    "baseUrl": ".",
     "paths": {
       "~/*": [
         "src/*"

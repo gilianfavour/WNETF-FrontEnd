@@ -23,7 +23,7 @@ const Link: React.FC<CustomLinkProps> = ({ href, children, ...props }) => (
 
 /* ------------------------------- */
 const useOnClickOutside = (
-  ref: React.RefObject<HTMLElement>,
+  ref: React.RefObject<any>,
   handler: (e: Event) => void
 ) => {
   useEffect(() => {

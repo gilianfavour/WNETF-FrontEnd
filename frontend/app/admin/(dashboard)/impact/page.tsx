@@ -65,7 +65,7 @@ export default function ImpactManagementPage() {
   // Stats CRUD
   const openAddStat = () => {
     setEditingStat(null)
-    setStatForm({ label: '', value: '', sub: '', color: 'blue', icon: 'Users', is_active: true })
+    setStatForm({ stat_label: '', stat_value: '', description: '', is_active: true })
     setIsStatModalOpen(true)
   }
 
@@ -114,7 +114,7 @@ export default function ImpactManagementPage() {
   // Stories CRUD
   const openAddStory = () => {
     setEditingStory(null)
-    setStoryForm({ name: '', course: '', university: '', quote: '', image: null })
+    setStoryForm({ title: '', content: '', beneficiary_name: '', is_featured: false, image: null })
     setIsStoryModalOpen(true)
   }
 
