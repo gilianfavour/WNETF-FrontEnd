@@ -75,8 +75,8 @@ export default function WhatWeDo() {
 
   return (
     <div
-      className="w-full py-12 flex flex-col items-center"
-      style={{ backgroundColor: LIGHT_BACKGROUND, top:"180px" }}
+      className="w-full pt-36 lg:pt-40 pb-12 flex flex-col items-center"
+      style={{ backgroundColor: LIGHT_BACKGROUND }}
     >
       {/* Heading */}
       <div

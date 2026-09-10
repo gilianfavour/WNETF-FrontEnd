@@ -24,7 +24,9 @@ export default function SiteShell({
   return (
     <>
       {navbar}
-      {children}
+      <main>
+        {children}
+      </main>
       {footer}
     </>
   )

@@ -11,7 +11,7 @@ const Contact2 = ({ header, form, id, hasBackground = false, items }: ContactPro
     <WidgetWrapper
       id={id ? id : ''}
       hasBackground={hasBackground}
-      containerClass="max-w-7xl mx-auto"
+      containerClass="max-w-7xl mx-auto pt-36 lg:pt-40"
     >
       {header && <Headline header={header} titleClass="text-3xl sm:text-5xl" />}
 

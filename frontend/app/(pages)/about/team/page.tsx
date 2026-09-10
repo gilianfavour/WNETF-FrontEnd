@@ -27,7 +27,7 @@ const TeamPage: React.FC = () => {
         <div className="bg-white">
             
             {/* Page Header / Introduction */}
-            <section className="py-16 px-4 md:px-8 text-center" style={{ backgroundColor: LIGHT_GREY }}>
+            <section className="pt-36 lg:pt-40 pb-16 px-4 md:px-8 text-center" style={{ backgroundColor: LIGHT_GREY }}>
                 <div className="max-w-4xl mx-auto">
                     <IconUsersGroup size={60} className="mx-auto mb-4" style={{ color: PRIMARY_BLUE }} />
                     <h1 className="text-4xl md:text-5xl font-extrabold mb-4" style={{ color: PRIMARY_BLUE }}>

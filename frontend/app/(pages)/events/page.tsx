@@ -76,7 +76,7 @@ export default function EventsPage() {
           style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'center 30%' }}
         />
         <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(135deg, rgba(3,43,83,0.80) 0%, rgba(45,106,79,0.75) 100%)' }} />
-        <div style={{ position: 'relative', zIndex: 1, textAlign: 'center', color: '#fff', padding: '160px 24px 80px' }}>
+        <div style={{ position: 'relative', zIndex: 1, textAlign: 'center', color: '#fff', padding: '180px 24px 80px' }}>
           <p style={{ fontSize: '0.85rem', letterSpacing: '0.18em', textTransform: 'uppercase', opacity: 0.75, marginBottom: 12 }}>West Nile Education Trust Fund</p>
           <h1 style={{ fontSize: 'clamp(2.2rem, 6vw, 4rem)', fontWeight: 800, marginBottom: 20, lineHeight: 1.15 }}>Events</h1>
           <p style={{ fontSize: '1.15rem', maxWidth: 600, margin: '0 auto', opacity: 0.9, lineHeight: 1.7 }}>

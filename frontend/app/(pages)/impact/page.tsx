@@ -79,7 +79,7 @@ export default function ImpactPage() {
         {/* Dark gradient overlay */}
         <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(135deg, rgba(3,43,83,0.88) 0%, rgba(28,182,205,0.55) 100%)' }} />
         {/* Content – pushed down to clear navbar (banner ~40px + navbar ~68px) */}
-        <div style={{ position: 'relative', zIndex: 1, textAlign: 'center', color: '#fff', padding: '160px 24px 80px' }}>
+        <div style={{ position: 'relative', zIndex: 1, textAlign: 'center', color: '#fff', padding: '180px 24px 80px' }}>
           <p style={{ fontSize: '0.85rem', letterSpacing: '0.18em', textTransform: 'uppercase', opacity: 0.75, marginBottom: 12 }}>West Nile Education Trust Fund</p>
           <h1 style={{ fontSize: 'clamp(2.2rem, 6vw, 4rem)', fontWeight: 800, marginBottom: 20, lineHeight: 1.15 }}>
             Our Impact

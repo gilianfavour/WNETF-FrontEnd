@@ -85,7 +85,7 @@ export default function RootLayout({ children }: LayoutProps) {
             }
             footer={<Footer />}
           >
-            <main>{children}</main>
+            {children}
           </SiteShell>
         </Providers>
       </body>

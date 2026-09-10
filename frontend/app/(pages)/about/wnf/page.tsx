@@ -10,7 +10,7 @@ const WnfPage: React.FC = () => {
         <div className="bg-white">
             
             {/* Page Header / Introduction */}
-            <section className="py-16 px-4 md:px-8 text-center" style={{ backgroundColor: PRIMARY_BLUE }}>
+            <section className="pt-36 lg:pt-40 pb-16 px-4 md:px-8 text-center" style={{ backgroundColor: PRIMARY_BLUE }}>
                 <div className="max-w-4xl mx-auto text-white">
                     <IconBuildingCommunity size={60} className="mx-auto mb-4" />
                     <h1 className="text-4xl md:text-5xl font-extrabold mb-4">

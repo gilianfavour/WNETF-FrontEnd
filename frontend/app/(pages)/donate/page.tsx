@@ -135,7 +135,7 @@ export default function DonateAllInOnePage() {
             </div>
 
             {/* Hero content */}
-            <div className="relative max-w-7xl mx-auto px-4 py-20 lg:flex lg:items-center lg:justify-between">
+            <div className="relative max-w-7xl mx-auto px-4 pt-36 lg:pt-40 pb-20 lg:flex lg:items-center lg:justify-between">
                 <div className="lg:w-1/2">
                 <h1 className="text-3xl md:text-4xl font-extrabold leading-tight">
                     Invest in West Nile's Future
